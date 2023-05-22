@@ -1,0 +1,997 @@
+;
+(function($) {
+	$.fn.extend({
+		"placeholder": function(h) {
+			h = $.extend({
+				placeholderColor: '#ACA899',
+				isUseSpan: false,
+				onInput: true
+			}, h);
+			$(this).each(function() {
+				var b = this;
+				var c = 'placeholder' in document.createElement('input');
+				if (!c) {
+					var d = $(b).attr('placeholder');
+					var e = $(b).css('color');
+					if (h.isUseSpan == false) {
+						$(b).focus(function() {
+							var a = new RegExp("^" + d + "$|^$");
+							a.test($(b).val()) && $(b).val('').css('color', e)
+						}).blur(function() {
+							if ($(b).val() == d) {
+								$(b).css('color', e)
+							} else if ($(b).val().length == 0) {
+								$(b).val(d).css('color', h.placeholderColor)
+							}
+						}).trigger('blur')
+					} else {
+						var f = $('<span class="wrap-placeholder" style="position:absolute; display:inline-block; overflow:hidden; color:' + h.placeholderColor + '; width:' + $(b).outerWidth() + 'px; height:' + $(b).outerHeight() + 'px;">' + d + '</span>');
+						f.css({
+							'margin-left': $(b).css('margin-left'),
+							'margin-top': $(b).css('margin-top'),
+							'font-size': $(b).css('font-size'),
+							'font-family': $(b).css('font-family'),
+							'font-weight': $(b).css('font-weight'),
+							'padding-left': parseInt($(b).css('padding-left')) + 2 + 'px',
+							'line-height': b.nodeName.toLowerCase() == 'textarea' ? $(b).css('line-weight') : $(b).outerHeight() + 'px',
+							'padding-top': b.nodeName.toLowerCase() == 'textarea' ? parseInt($(b).css('padding-top')) + 2 : 0
+						});
+						$(b).before(f.click(function() {
+							$(b).trigger('focus')
+						}));
+						$(b).val().length != 0 && f.hide();
+						if (h.onInput) {
+							var g = typeof(b.oninput) == 'object' ? 'input' : 'propertychange';
+							$(b).bind(g, function() {
+								f[0].style.display = $(b).val().length != 0 ? 'none' : 'inline-block'
+							})
+						} else {
+							$(b).focus(function() {
+								f.hide()
+							}).blur(function() {
+								/^$/.test($(b).val()) && f.show()
+							})
+						}
+					}
+				}
+			});
+			return this
+		}
+	})
+})(jQuery);
+
+
+function autoclose() {
+	clearTimeout(t);
+	$.fancybox.close()
+}
+function replaceAll(s, a, b) {
+	return s.replace(new RegExp(a, "gm"), b)
+}
+function num() {
+	var i = Math.random() * 100000;
+	var a = "" + i + "";
+	a = a.substr(0, 5);
+	return a
+}
+function isNumber(e) {
+	if ($.browser.msie) {
+		if (((event.keyCode > 47) && (event.keyCode < 58)) || (event.keyCode == 8)) {
+			return true
+		} else {
+			return false
+		}
+	} else {
+		if (((e.which > 47) && (e.which < 58)) || (e.which == 8)) {
+			return true
+		} else {
+			return false
+		}
+	}
+}
+String.prototype.trim = function() {
+	var a = this,
+		a = a.replace(/^\s+/, "");
+	for (var i = a.length - 1; i >= 0; i--) {
+		if (/\S/.test(a.charAt(i))) {
+			a = a.substring(0, i + 1);
+			break
+		}
+	}
+	return a
+};
+
+function getCookie(a) {
+	if (document.cookie.length > 0) {
+		c_start = document.cookie.indexOf(a + "=");
+		if (c_start != -1) {
+			c_start = c_start + a.length + 1;
+			c_end = document.cookie.indexOf(";", c_start);
+			if (c_end == -1) c_end = document.cookie.length;
+			return decodeURIComponent(document.cookie.substring(c_start, c_end))
+		}
+	}
+	return ""
+};
+
+function setCookie(a, b, c) {
+	var d = new Date();
+	d.setHours(d.getHours() + c);
+	document.cookie = a + "=" + encodeURIComponent(b) + ((c == null) ? "" : ";expires=" + d.toGMTString()) + ";path=/"
+}
+function len(x) {
+	return x.replace(/[^\x00-\xff]/g, "11").length
+};
+var editor;
+
+function loadeSmalleditor() {
+	KindEditor.ready(function(K) {
+		editor = K.create('#editor_id', {
+			resizeType: 0,
+			filterMode: true,
+			allowImageUpload: false,
+			allowFlashUpload: false,
+			allowMediaUpload: false,
+			allowFileManager: false,
+			shadowMode: false,
+			themeType: 'simple',
+			newlineTag: 'p',
+			pasteType: 1,
+			afterCreate: function() {
+				K.ctrl(this.edit.iframe.get(0).contentWindow.document, 13, function() {
+					$("#enter").click()
+				})
+			},
+			afterChange: function() {
+				this.sync()
+			},
+			items: ['fontname', 'fontsize', 'emoticons', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist', 'insertunorderedlist', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline', 'strikethrough', 'removeformat', 'selectall']
+		})
+	})
+}
+function ajax_post(b, c, d) {
+	$.ajax({
+		type: "POST",
+		cache: false,
+		url: b,
+		data: c,
+        success: d,
+        async:true,
+		error: function(a) {
+			alert("请求数据失败，代码:" + a.status + "，请稍候再试")
+		}
+	})
+};
+
+function ajax_get(b, c, d) {
+	$.ajax({
+		type: "GET",
+		cache: true,
+		url: b,
+		data: c,
+        success: d,
+        async:true,
+        error: function (a) {
+            console.log(a);
+			//alert("请求数据失败，代码:" + a.status + "，请稍候再试")
+		}
+	})
+};
+
+function fancybox(a) {
+	$.fancybox({
+		'content': a
+	})
+};
+
+function showfancybox(a, b, c) {
+	$.fancybox({
+		'content': a,
+		'opacity': false,
+		'overlayShow': false,
+		'transitionIn': 'none',
+		'transitionOut': 'none',
+		onComplete: function() {
+			$("#" + b).focus()
+		},
+		onClosed: function() {
+			$("#" + c).focus()
+		}
+	})
+}
+function popupevent(b, c, d) {
+	ajax_get(b, c, function(a) {
+		showfancybox(a, d)
+	})
+};
+
+function popup(b, c) {
+	ajax_get(b, c, function(a) {
+		fancybox(a)
+	})
+}
+function popupost(b, c) {
+	ajax_post(b, c, function(a) {
+		fancybox(a)
+	})
+}
+function hideloading() {
+	var a = $("#loading");
+	a.empty();
+	a.hide()
+}
+function showloading() {
+	var a = $("#loading");
+	a.html('<img src="/static/images/loader.gif" width="16" height="16" />');
+	var b = $(window).width() / 2 + 8;
+	var c = $(window).height() / 2 + 8;
+	a.css({
+		"top": c + "px",
+		"left": b + "px"
+	});
+	a.show()
+}
+function getUrlArray() {
+	var a = [];
+	var b = [];
+	a = window.location.href.split(".");
+	var c = "";
+	for (var i = 0; i < a.length - 1; i++) {
+		if (i == 0) c = c + a[i];
+		else c = c + "." + a[i]
+	}
+	if (c.indexOf("-") != -1) {
+		b[0] = c.split("-")[0]
+	} else {
+		b[0] = c
+	}
+	b[1] = a[a.length - 1];
+	return b
+}
+function getpagesize(a) {
+	var b = getUrlArray();
+	var c = "";
+	if (a != 50) {
+		c = b[0] + "-p-" + a + "." + b[1]
+	} else {
+		c = b[0] + "." + b[1]
+	}
+	window.location.href = c
+}
+function getpagesizenew(baseurl, lottotype, actiontype, type) {
+	window.location.href = baseurl + "?lottoType="+lottotype+"&actionType="+actiontype+"&type="+type+"&dpc=1";
+}
+function gotop() {
+	$('body,html').animate({
+		scrollTop: 0
+	}, 500)
+}
+function isie6() {
+    return false;
+}
+function showrightlayer() {
+	if ($(window).scrollTop() > 200) {
+		var a = $(".quickjump");
+		var b = $(document).width();
+		if (b > 1280) {
+			a.fadeIn(200);
+			var c = (b - 1200) / 2 - 73;
+			if (isie6()) c = c - 12;
+			var d = {
+				"right": c + "px"
+			};
+			a.css(d)
+		} else {
+			$(".quickjump").hide()
+		}
+	} else {
+		$(".quickjump").fadeOut(200)
+	}
+}
+function alertmsg(a) {
+	popup("/ui/message.aspx", "msg=" + escape(a))
+}
+
+function selectcz() {
+	popup("/ui/selectcz.html")
+}
+function feedback() {
+	popupevent("/ui/feedback.aspx", "", "title")
+}
+function login() {
+	popupevent("/ui/login.aspx", "", "username")
+}
+function register() {
+	popup("/ui/register.aspx")
+}
+function findpassword() {
+	popupevent("/ui/findpassword.aspx", "mobile")
+}
+function customitem(a) {
+	popup("/ui/custom_item.aspx?type=" + a)
+}
+function admintopic(a) {
+	popup("/ui/forum/admintopic.aspx?tid=" + a)
+}
+function adminpost(a) {
+	popup("/ui/forum/adminpost.aspx?pid=" + a)
+}
+function sharebox() {
+	popup("https://www.8200.cn/ui/sharebox.aspx")
+}
+function sendpm(u)
+{
+	popup("/ui/sendpm.aspx?posterid="+u);
+}
+function popqrcode()
+{
+    popup("/ui/qrcode.aspx?url="+escape(top.location.href));
+}
+function popmqrcode() {
+    popup("/ui/mobile_qrcode.aspx");
+}
+
+
+///获取远程的短消息发送页面
+function GetSendPmPage(posterid)
+{
+    $.ajax({
+        type: "GET",
+        cache: false,
+        dataType: "jsonp",
+        url: "https://bbs.8200.cn/ui/sendpm.aspx?posterid="+posterid,
+        data: "",
+        jsonp: "jsonpcallback",
+        success: function (a) {
+        	fancybox(a.html)
+        }
+    });
+}
+
+///我的短消息列表
+function GetMyPmList(page)
+{
+    $.ajax({
+        type: "GET",
+        cache: false,
+        dataType: "jsonp",
+        url: "https://bbs.8200.cn/ajax/ajax_mymessage.aspx?page="+page,
+        data: "",
+        jsonp: "mypmcallback",
+        success: function (a) {
+        	
+        }
+    });
+}
+//我的短消息回调
+function mypmcallback(a)
+{
+	$("#mypmlist").html(a.html)
+}
+
+///短消息阅读
+function GetMyPmReadList(page,fuid)
+{
+    $.ajax({
+        type: "GET",
+        cache: false,
+        dataType: "jsonp",
+        url: "https://bbs.8200.cn/ajax/ajax_readmessage.aspx?page="+page+"&fuid="+fuid,
+        data: "",
+        jsonp: "readpmcallback",
+        success: function (a) {
+        	
+        }
+    });
+}
+//短消息阅读回调
+function readpmcallback(a)
+{
+	$("#readpmlist").html(a.html)
+}
+
+///删除短消息
+function deletemessage(uid, fuid, mid) {
+    var flag = false;
+    if (uid > 0 && (fuid > 0||fuid==-2)) {
+        if (confirm("请确认，此操作会删除此会话中的所有短信！")) {
+            flag = true;
+        }
+    }
+    if (mid > 0) {
+        if (confirm("请确认，删除此短信后不可恢复!")) {
+            flag = true;
+        }
+    }
+    if (flag) {
+        $.ajax({
+            type: 'GET',
+            dataType: 'jsonp',
+            url: 'https://bbs.8200.cn/ajax/ajax_delete_pm.aspx',
+            data: 'cuid=' + uid + '&fuid=' + fuid + '&pmid=' + mid,
+            jsonp: "deletepmcallback",
+            success: function (html) {
+
+            }
+        });
+    }
+}
+//删除短消息的回调
+function deletepmcallback(html)
+{
+	if (html.error == 0) {
+	    top.location.reload();
+	} else {
+	    alert(html.message);
+	}
+
+}
+
+function showinfo(msg)
+ {
+    var obj = $("#info");
+    obj.show();
+    obj.html("提示：" + msg);
+}
+
+///发送短消息
+function sendpmpost()
+{
+    var username = $("#username");
+    var message = $("#message");
+    var enter = $("#enter");
+    var i = 2;
+    if (username.val() == "" || username.val().length == 0) {
+        showinfo("请填写接收人...");
+        username.focus();
+        i = 1;
+        return false;
+    }
+    if (message.val() == "" || message.val().length == 0) {
+        showinfo("请填写短信正文...");
+        message.focus();
+        i = 1;
+        return false;
+    }
+    if (i == 2) {
+        enter.val("正在发送..");
+        enter.attr('disabled', true);
+        var param = "username=" + escape(username.val()) + "&message=" + escape(message.val());
+        $.ajax({
+            type: "POST",
+            cache: false,
+            dataType: "jsonp",
+            url: "https://bbs.8200.cn/ajax/ajax_sendpm.aspx",
+            jsonp: "jsonpcallback",
+            data: param,
+            success: function (html) {
+
+            }          
+        });
+        enter.attr('disabled', false);
+        enter.val("确认发送");            
+    }
+}
+//短消息发送的callback function
+function jsonpcallback(html)
+{
+	if (html.error == 0) {
+	    location.reload();
+	} else {
+	    showinfo(html.message);
+	}
+}
+
+//获取短信通知
+function GetPmCount()
+{
+    $.ajax({
+        type: "POST",
+        cache: false,
+        dataType: "jsonp",
+        url: "https://bbs.8200.cn/ajax/ajax_pm_count.aspx",
+        data: "",
+        jsonp: "jsonpcallback",
+        success: function (a) {
+        	setCookie("cb_newmessage",a.count);
+        },
+        error: function (a) {
+            //alert("请求数据失败，代码:" + a.status + "，请稍候再试")
+        }
+    });
+}
+function getusermenu() {
+    var a = parseInt(getCookie("favtip"));
+    if (a > 0) {
+        $("#favtip").hide()
+    }
+    var b = getCookie("cb_user_show");
+    var c = $("#usermenus");
+    var d = "";
+    if (b != undefined && b.trim().length > 0) {
+		d = "<ul><li style=\"margin-top:4px;\">您好，<strong>" + b + "</strong>！<br/> <a href=\"https://bbs.niu.cn/my\">用户中心</a> - <a href=\"javascript:;\" onclick=\"loginout()\">安全退出</a></li></ul>";
+    } else {
+		d = "<ul style='margin-top:20px;'><li class=\"weibo\"><a href=\"https://bbs.niu.cn/login/wxoauth?type=8200&u=" + escape(location.href) + "\" title=\"使用微信登录\" target=\"_blank\"><span></span></a></li><li class=\"qq\"><a href=\"https://bbs.niu.cn/login/qqoauth?type=8200&u=" + escape(location.href) +"\" title=\"使用QQ登录\" target=\"_blank\"><span></span></a></li><li class=\"reg\"><a href=\"https://bbs.niu.cn/login/register\" class=\"register\"><span></span></a></li><li class=\"login\"><a href=\"https://bbs.niu.cn/login?url="+escape(location.href)+"\" class=\"login\"><span></span></a></li></ul>"
+    }
+    c.html(d);
+
+    //if (pmcount > 0)
+    //    shake($("#sms"), "shake", 3);
+}
+function loginout() {
+	location.href = "/user/logout.aspx?lasturl=" + escape(location.href);
+}
+
+$(function() {
+	$(".menusli").tipsy({
+		gravity: 'nw'
+	});
+	$("#miniboxlabel,#minibox").tipsy({
+		gravity: 'nw'
+	});
+	$("#closetips").on("click", function() {
+		$("#favtip").hide();
+		setCookie("favtip", 1, 1)
+	});
+	$(".control").children().on("click", function() {
+		$(".control").children().attr("class", "");
+		$("#mainmenus").children().hide();
+		$(this).attr("class", "tab");
+		$("#" + $(this).attr("rel")).show()
+	});
+	$(".showclose").on("click", function() {
+		var a = $(this).html() == "隐藏" ? 0 : 1;
+		if (a == 0) {
+			$("#helptip").children("ul").hide();
+			$(this).html("显示")
+		} else {
+			$("#helptip").children("ul").show();
+			$(this).html("隐藏")
+		}
+		setCookie("helpstatus", a, 12)
+	});
+	var b = getCookie("helpstatus");
+	if (b != "" && b.length > 0) {
+		var c = parseInt(b);
+		if (c == 0) {
+			$("#helptip").children("ul").hide();
+			$(".showclose").html("显示")
+		} else {
+			$("#helptip").children("ul").show();
+			$(".showclose").html("隐藏")
+		}
+    }
+    $('.newshowclose').click(function () {
+        if ($('.newContent').css('display') != "none") {
+            $('.newContent').hide();
+        } else {
+            $('.newContent').show();
+        }
+    })
+	$(".custometab").children().on("click", function() {
+		var a = $(this).attr("rel");
+		$(".custometab").children().attr("class", "");
+		$(this).attr("class", "tab");
+		$("#customlist").children().hide();
+		$("#" + a).show();
+		setCookie("favswitch", a, 12)
+	});
+	var d = getCookie("favswitch");
+	var e = getCookie("cb_user_show");
+	if ((e == undefined || e.trim().length == 0) && d == "favs") d = "znts";
+	if (d != "" && d.length > 0) {
+		$(".custometab").children().attr("class", "");
+		$(".custometab").find("li[rel=" + d + "]").attr("class", "tab");
+		$("#customlist").children().hide();
+		$("#" + d).show()
+	}
+	$("#minibox").on("click", function() {
+		var v = 0;
+		if ($(this).is(":checked")) v = 1;
+		setCookie("minibox", v, 36)
+	});
+	var f = getCookie("minibox");
+	if (f != "" && f.length > 0) {
+		var o = $("#minibox");
+		var g = parseInt(f);
+		if (g == 1) o.attr("checked", true);
+		else o.attr("checked", false)
+	}
+});
+$(window).scroll(function() {
+	showrightlayer()
+});
+$(window).resize(function() {
+	showrightlayer()
+});
+
+function addusercollect(b) {
+	var c = getCookie("cb_user_show");
+	if (c == undefined || c.trim().length == 0) {
+		login()
+	} else {
+		$.ajax({
+			type: "POST",
+			cache: false,
+			dataType: "json",
+			url: "/ajax/user/usercollect.aspx",
+			data: "mid=" + b,
+			success: function(a) {
+				alertmsg(a.message)
+			},
+			error: function(a) {
+				alert("请求数据失败，代码:" + a.status + "，请稍候再试")
+			}
+		})
+	}
+}
+function updateusercollect(b) {
+	$.ajax({
+		type: "POST",
+		cache: false,
+		dataType: "json",
+		url: "/ajax/user/updateusercollect.aspx",
+		data: "id=" + b,
+		success: function(a) {},
+		error: function(a) {
+			alert("请求数据失败，代码:" + a.status + "，请稍候再试")
+		}
+	})
+}
+function support(b, c) {
+	if (b > 0) {
+		$.ajax({
+			type: "POST",
+			cache: false,
+			dataType: "json",
+			url: "/ajax/forum/ajax_support.aspx",
+			data: "tid=" + b + "&type=" + c,
+			success: function(a) {
+				alertmsg(a.message);
+				if (a.val > 0 && c == 0) $("#support").text(a.val);
+				if (a.val > 0 && c == 1) $("#oppose").text(a.val)
+			},
+			error: function(a) {
+				alert("请求数据失败，代码:" + a.status + "，请稍候再试")
+			}
+		})
+	}
+}
+function helpuseful(b, c) {
+	if (b > 0) {
+		$.ajax({
+			type: "POST",
+			cache: false,
+			dataType: "json",
+			url: "/ajax/news/ajax_helpuseful.aspx",
+			data: "nid=" + b + "&type=" + c,
+			success: function(a) {
+				alertmsg(a.message)
+			},
+			error: function(a) {
+				alert("请求数据失败，代码:" + a.status + "，请稍候再试")
+			}
+		})
+	}
+}
+function showmini(a, x, y, e) {
+	$("body").append(a);
+	var b = $(".zst_leaf").height() + 5;
+	var c = $(".zst_leaf").width();
+	var d = $(window).width();
+	if ((x + c) > d) x = x - c + 24;
+	else x = x - 24;
+	$(".zst_leaf").css({
+		"top": y - b + "px",
+		"left": x + "px",
+		"z-index": "1024",
+		"position": "absolute"
+	});
+	$(".zst_leaf").show();
+	$(document).on("mouseover", function() {
+		$(".zst_leaf").hide();
+		$(".zst_leaf").remove()
+	});
+	e.stopPropagation();
+	$(".zst_leaf").mouseover(function(e) {
+		e.stopPropagation()
+	});
+	$(".leafclose").on("click", function() {
+		$(".zst_leaf").hide();
+		$(".zst_leaf").remove()
+	})
+}
+function IsPhone() {
+	if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+		if (window.location.href.indexOf("?mobile") < 0) {
+			try {
+				if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+					return true
+				}
+			} catch (e) {}
+		}
+	}
+	return false
+}
+function popmini(c, d, e, f, t, b, h, j) {
+	var g = IsPhone();
+	if (g) return;
+	var i = $("#minibox").is(":checked");
+	if (!i) return;
+	ajax_get(d, "num=" + f + "&type=" + t + "&b=" + b + "&h=" + h + "&j=" + j, function(a) {
+		var x = e.pageX;
+		var y = e.pageY;
+		showmini(a, x, y, e)
+	})
+}
+function preSelect3d(k, c, j, a, n, t) {
+	var d = $("#" + k);
+	var f = d.find(c);
+	var b = a[0] ? a[0] : 0;
+	var h = a[1] ? a[1] : f.length;
+	if (t == undefined) t = "";
+	for (var g = b; g <= h; g++) {
+		if (f.eq(g).html() != "") {
+			f.eq(g).on("click", function(e) {
+				if ($(this).attr("class") != j) {
+					$(this).attr("class", j);
+					if (n) popmini(this, "/lotto/pc_zst/zstLeaf?dpc=1&lottoType=3d", e, $(this).html(), t, b, h, j)
+				} else {
+					$(this).attr("class", "")
+				}
+			});
+			f.eq(g).on('mouseover', function(e) {
+				if ($(this).attr("class") == j && n) popmini(this, "/lotto/pc_zst/zstLeaf?dpc=1&lottoType=3d", e, $(this).html(), t, b, h, j)
+			})
+		}
+	}
+}
+function preSelectp3(k, c, j, a, n, t) {
+	var d = $("#" + k);
+	var f = d.find(c);
+	var b = a[0] ? a[0] : 0;
+	var h = a[1] ? a[1] : f.length;
+	if (t == undefined) t = "";
+	for (var g = b; g <= h; g++) {
+		if (f.eq(g).html() != "") {
+            f.eq(g).on("click", function (e) {
+                if (!$(this).hasClass(j)) {
+                    $(this).addClass(j);
+					if (n) popmini(this, "/lotto/pc_zst/zstLeaf?dpc=1&lottoType=p3", e, $(this).html(), t, b, h, j)
+                } else {
+                    $(this).removeClass(j)
+				}
+			});
+            f.eq(g).on('mouseover', function (e) {
+                if ($(this).hasClass(j) && n) popmini(this, "/lotto/pc_zst/zstLeaf?dpc=1&lottoType=p3", e, $(this).html(), t, b, h, j)
+			})
+		}
+	}
+}
+function preSelectgp(k, c, j, a, n, t) {
+    var d = $("#" + k);
+    var f = d.find(c);
+    var b = a[0] ? a[0] : 0;
+    var h = a[1] ? a[1] : f.length;
+    if (t == undefined) t = "";
+    for (var g = b; g <= h; g++) {
+        if (f.eq(g).html() != "") {
+            f.eq(g).on("click", function (e) {
+                if (!$(this).hasClass(j)) {
+                    $(this).addClass(j);
+                    if (n) popmini(this, "/lotto/pc_zst/zstLeaf?dpc=1&lottoType=p3", e, $(this).html(), t, b, h, j)
+                } else {
+                    $(this).removeClass(j)
+                }
+            });
+        }
+    }
+}
+function preSelectssq(k, c, j, a, n, t) {
+	var d = $("#" + k);
+	var f = d.find(c);
+	var b = a[0] ? a[0] : 0;
+	var h = a[1] ? a[1] : f.length;
+	if (t == undefined) t = "";
+	for (var g = b; g <= h; g++) {
+		if (f.eq(g).html() != "") {
+			f.eq(g).on("click", function(e) {
+				if ($(this).attr("class") != j) {
+					$(this).attr("class", j);
+					if (n) popmini(this, "/lotto/pc_zst/zstLeaf?dpc=1&lottoType=ssq", e, $(this).html(), t, b, h, j)
+				} else {
+					$(this).attr("class", "")
+				}
+			});
+			f.eq(g).on('mouseover', function(e) {
+				if ($(this).attr("class") == j && n) popmini(this, "/lotto/pc_zst/zstLeaf?dpc=1&lottoType=ssq", e, $(this).html(), t, b, h, j)
+			})
+		}
+	}
+}
+function preSelectdlt(k, c, j, a, n, t) {
+	var d = $("#" + k);
+	var f = d.find(c);
+	var b = a[0] ? a[0] : 0;
+	var h = a[1] ? a[1] : f.length;
+	if (t == undefined) t = "";
+	for (var g = b; g <= h; g++) {
+		if (f.eq(g).html() != "") {
+			f.eq(g).on("click", function(e) {
+				if ($(this).attr("class") != j) {
+					$(this).attr("class", j);
+					if (n) popmini(this, "/lotto/pc_zst/zstLeaf?dpc=1&lottoType=dlt", e, $(this).html(), t, b, h, j)
+				} else {
+					$(this).attr("class", "")
+				}
+			});
+			f.eq(g).on('mouseover', function(e) {
+				if ($(this).attr("class") == j && n) popmini(this, "/lotto/pc_zst/zstLeaf?dpc=1&lottoType=dlt", e, $(this).html(), t, b, h, j)
+			})
+		}
+	}
+}
+function preSelectqlc(k, c, j, a) {
+	var d = $("#" + k);
+	var f = d.find(c);
+	var b = a[0] ? a[0] : 0;
+	var h = a[1] ? a[1] : f.length;
+	for (var g = b; g <= h; g++) {
+		if (f.eq(g).html() != "") {
+			f.eq(g).on("click", function(e) {
+				if ($(this).attr("class") != j) {
+					$(this).attr("class", j)
+				} else {
+					$(this).attr("class", "")
+				}
+			})
+		}
+	}
+}
+function preSelectp5(k, c, j, a, n, t) {
+	var d = $("#" + k);
+	var f = d.find(c);
+	var b = a[0] ? a[0] : 0;
+	var h = a[1] ? a[1] : f.length;
+	if (t == undefined) t = "";
+	for (var g = b; g <= h; g++) {
+		if (f.eq(g).html() != "") {
+			f.eq(g).on("click", function(e) {
+				if ($(this).attr("class") != j) {
+					$(this).attr("class", j);
+					if (n) popmini(this, "/lotto/pc_zst/zstLeaf?dpc=1&lottoType=p5", e, $(this).html(), t, b, h, j)
+				} else {
+					$(this).attr("class", "")
+				}
+			});
+			f.eq(g).on('mouseover', function(e) {
+				if ($(this).attr("class") == j && n) popmini(this, "/lotto/pc_zst/zstLeaf?dpc=1&lottoType=p5", e, $(this).html(), t, b, h, j)
+			})
+		}
+	}
+}
+function preSelect1(k, c, j, a, d) {
+	var f = typeof k == "object" ? k : document.getElementById(k);
+	if (f) {
+		var e = f.getElementsByTagName(c),
+			b = a[0] ? a[0] : 0,
+			h = a[1] ? a[1] : e.length - 1;
+		for (var g = b; g <= h; g++) {
+			e[g].index = g;
+			if (e[g].innerHTML && e[g].innerHTML != "") {
+				e[g].onclick = function(a) {
+					if (e[this.index].className.indexOf(j) > -1) {
+						e[this.index].className = e[this.index].className.split(j).join("")
+					} else {
+						popmini(this, "/ui/zst_leaf.aspx", a);
+						if (d) {
+							var l = d(e, this.index, j);
+							if (0 == l) {
+								e[this.index].className = j
+							} else {
+								alert("本组最多可选" + l + "个")
+							}
+						} else {
+							e[this.index].className += " " + j
+						}
+					}
+				};
+				e[g].onmouseover = function(a) {
+					if (e[this.index].className.indexOf(j) > -1) {
+						popmini(this, "/ui/zst_leaf.aspx", a)
+					}
+				}
+			}
+		}
+	}
+}
+
+/*
+jquery 的闪烁文字
+*/
+function shake(ele, cls, times) {
+    var i = 0, t = false, o = ele.attr("class") + " ", c = "", times = times || 2;
+    if (t) return;
+    t = setInterval(function () {
+        i++;
+        c = i % 2 ? o + cls : o;
+        ele.attr("class", c);
+        if (i == 2 * times) {
+            clearInterval(t);
+            ele.removeClass(cls);
+        }
+    }, 200);
+};
+
+function GetMini(cid, action) {
+    $.ajax({
+        type: "POST",
+        url: "/ajax/mini/getmini.aspx",
+        data: "cid="+cid,
+        cache: false,
+        dataType: "json",
+        success: function (data) {
+            if (data != undefined && data != "") {
+                var str = Base64.decode(data);
+                $("#mini" + cid).html(str);
+            }
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    });
+}
+
+function gp_ch_lh(type) {
+    if (type == 'ch') {
+        $('[type="ch"]').show();
+        $('[type="lh"]').hide();
+        $('[colspan="34"]').attr('colspan', 34);
+        //$(".lhzsbtn").text('(连号数走势)');
+        //$(".chzsbtn").text('重号数走势');
+        //$('td[type=lh]').css("display", "none");
+        //$('td[type=lhgs]').css("display", "none");
+        //$('td[type=ch]').show();
+        //$('td[type=chgs]').show();
+        //$(".chzsbtn").removeClass('text-blue');
+        //$(".lhzsbtn").addClass('text-blue');
+    } else if (type == 'lh') {
+        $('[type="ch"]').hide();
+        $('[type="lh"]').show();
+        $('[colspan="34"]').attr('colspan', 33);
+        //$(".lhzsbtn").text('连号数走势');
+        //$(".chzsbtn").text('(重号数走势)');
+        //$('td[type=ch]').css("display", "none");
+        //$('td[type=chgs]').css("display", "none");
+        //$('td[type=lh]').show();
+        //$('td[type=lhgs]').show();
+        //$(".chzsbtn").addClass('text-blue');
+        //$(".lhzsbtn").removeClass('text-blue');
+    }
+    $("#wrapper").html("");
+    trendInit();
+}
+
+function gp_ch_lh_yl(type) {
+    if (type == 'ch') {
+        $("#yldata").find('td[type=lhgs]').css("display", "none");
+        $("#yldata").find('td[type=chgs]').show();
+        $("#chgs").removeClass('text-blue');
+        $("#chgs").removeClass('text-12');
+        $("#lhgs").addClass('text-12');
+        $("#lhgs").addClass('text-blue');
+    } else if (type == 'lh') {
+        $("#yldata").find('td[type=chgs]').css("display", "none");
+        $("#yldata").find('td[type=lhgs]').show();
+        $("#chgs").addClass('text-12');
+        $("#chgs").addClass('text-blue');
+        $("#lhgs").removeClass('text-12');
+        $("#lhgs").removeClass('text-blue');
+    }
+}
+
+function getUrlParam(name) {
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+  var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+  if (r != null) return decodeURI(r[2]); return null; //返回参数值
+}

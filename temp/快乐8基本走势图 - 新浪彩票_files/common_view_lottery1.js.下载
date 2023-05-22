@@ -1,0 +1,55 @@
+$.extend({
+	loadPath: '',
+	loadfile: function(a) {
+		var b = typeof a == "string" ? [a] : a;
+		for (var i = 0; i < b.length; i++) {
+			var c = b[i].replace(/^\s|\s$/g, "");
+			var d = c.split('.');
+			var e = d[d.length - 1].toLowerCase();
+			var f = e == "css";
+			var g = f ? "link" : "script";
+			var h = f ? " type='text/css' rel='stylesheet' " : " type='text/javascript' ";
+			var j = (f ? "href" : "src") + "='" + $.loadPath + c + "'";
+			if ($(g + "[" + j + "]").length == 0) document.write("<" + g + h + j + "></" + g + ">")
+		}
+	}
+});
+//$.loadPath = '/static/';
+$.loadPath = '//edge.caitong.sina.com.cn/static/';
+
+function getparame() {
+	var a = "";
+	var b = document.getElementsByTagName("script");
+	for (var i = 0; i < b.length; i++) {
+		if (b[i].src.indexOf("common_view_lottery1.js") != -1) {
+            a = b[i].getAttribute("data");
+			return a
+		}
+	}
+};
+var val = getparame();
+var resource = ['js/functions_view_lottery.js', 'fancybox/jquery.fancybox.css', 'fancybox/jquery.fancybox.js', 'tipsy/jquery.tipsy.js', 'tipsy/tipsy.css'];
+switch (val) {
+case "zst":
+        resource = resource.concat(['js/control.js', 'js/line.js', 'js/zst_view_lottery.js','js/base64.min.js']);
+    break;
+case "zst1":
+        resource = resource.concat(['js/trendChart.js', 'js/zst_view_lottery.js', 'js/base64.min.js']);
+        break;
+case "gpzst":
+        resource = resource.concat(['js/trendChart18.js', 'js/gpdjs.js', 'js/gpRenderNewData.js', 'js/base64.min.js']);
+        break;
+case "zst18":
+    resource = resource.concat(['js/trendChart18.js', 'js/zst_view_lottery.js', 'js/base64.min.js']);
+    break;
+case "tool":
+        resource = resource.concat(['js/tools.js', 'js/base64.min.js']);
+	break;
+case "yl":
+        resource = resource.concat(['js/yl.js', 'js/base64.min.js']);
+	break;
+case "kjh":
+        resource = resource.concat(['js/kjh.js', 'js/base64.min.js']);
+	break
+};
+$.loadfile(resource);

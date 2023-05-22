@@ -1,0 +1,419 @@
+var args;
+if (typeof chartname != "undefined") {
+  switch (chartname) {
+    case "kl8_default":
+      args = {
+        initBody: "cpdata",
+        initArea: [],
+        initClass: [
+          "chartball01",
+          "chartball02",
+          "chartBall07",
+          "chartBall02",
+          "chartBall03",
+          "chartBall04",
+          "chartBall05",
+          "chartball20",
+        ],
+        initParams: [
+          {
+            color: "#3370b0",
+          },
+        ],
+        omitData: [
+          "no_lost",
+          "chartsTable",
+          "no_lost",
+          "nonum",
+          !1,
+          "no_lost1",
+        ],
+        omitLayer: ["slice_lost", "4", "36", "slice_lost", !1, "slice_lost1"],
+        brokenLine: ["broken_line", !0, "broken_line1"],
+        repNum: ["ch", "4", "36", "ch", false],
+        conNum: ["lh", "4", "36", "lh", false],
+        adjaNum: ["bh", "4", "36", "bh", false],
+        sortTop: ["imgsort", "broken_line", ""],
+        sortBottom: ["imgsort_b", "broken_line", ""],
+      };
+      for (var i = 1; i < 4; i++) {
+        preSelectqlc("presele_" + i, "td", "realball", [2, 34]);
+      }
+      break;
+
+    case "qlc_5fenqu":
+      args = {
+        initBody: "cpdata",
+        initArea: [],
+        initClass: [
+          "chartball01",
+          "chartball02",
+          "chartBall07",
+          "chartBall02",
+          "chartBall03",
+          "chartBall04",
+          "chartBall05",
+          "chartball20",
+        ],
+        initParams: [
+          {
+            color: "#3370b0",
+          },
+        ],
+        omitData: [
+          "no_lost",
+          "chartsTable",
+          "no_lost",
+          "nonum",
+          !1,
+          "no_lost1",
+        ],
+        omitLayer: ["slice_lost", "4", "38", "slice_lost", !1, "slice_lost1"],
+        brokenLine: ["broken_line", !0, "broken_line1"],
+        repNum: ["ch", "4", "38", "ch", false],
+        conNum: ["lh", "4", "38", "lh", false],
+        adjaNum: ["bh", "4", "38", "bh", false],
+        sortTop: ["imgsort", "broken_line", ""],
+        sortBottom: ["imgsort_b", "broken_line", ""],
+      };
+      for (var i = 1; i < 4; i++) {
+        preSelectqlc("presele_" + i, "td", "realball", [2, 36]);
+      }
+      break;
+
+    case "qlc_hzzs":
+      args = {
+        initBody: "cpdata",
+        initArea: [
+          {
+            left: 15,
+            top: 0,
+            width: 11,
+            height: 0,
+          },
+          {
+            left: 33,
+            top: 0,
+            width: 10,
+            height: 0,
+          },
+        ],
+        initClass: ["chartball03", "chartball04"],
+        initParams: [
+          {
+            color: "#c84c59",
+          },
+          {
+            color: "#e0b26d",
+          },
+        ],
+        omitData: [
+          "no_lost",
+          "chartsTable",
+          "no_lost",
+          "nonum",
+          !1,
+          "no_lost1",
+        ],
+        omitLayer: [
+          "slice_lost",
+          "14,32",
+          "26,43",
+          "slice_lost",
+          !1,
+          "slice_lost1",
+        ],
+        brokenLine: ["broken_line", !0, "broken_line1"],
+        sortTop: ["imgsort", "broken_line", ""],
+        sortBottom: ["imgsort_b", "broken_line", ""],
+      };
+      for (var i = 1; i < 4; i++) {
+        preSelectqlc("presele_" + i, "td", "bg_r", [3, 14]),
+          preSelectqlc("presele_" + i, "td", "box_bg2", [16, 17]),
+          preSelectqlc("presele_" + i, "td", "bg_o", [22, 32]);
+      }
+      break;
+    case "qlc_dxzs":
+      args = {
+        initBody: "cpdata",
+        initArea: [],
+        initClass: [
+          "chartball01",
+          "chartball02",
+          "chartBall07",
+          "chartBall02",
+          "chartBall03",
+          "chartBall04",
+          "chartBall05",
+          "chartball20",
+        ],
+        initParams: [
+          {
+            color: "#3370b0",
+          },
+        ],
+        omitData: [
+          "no_lost",
+          "chartsTable",
+          "no_lost",
+          "nonum",
+          !1,
+          "no_lost1",
+        ],
+        omitLayer: ["slice_lost", "13", "46", "slice_lost", !1, "slice_lost1"],
+        brokenLine: ["broken_line", !0, "broken_line1"],
+        repNum: ["ch", "13", "46", "ch", false],
+        conNum: ["lh", "13", "46", "lh", false],
+        adjaNum: ["bh", "13", "46", "bh", false],
+        sortTop: ["imgsort", "broken_line", ""],
+        sortBottom: ["imgsort_b", "broken_line", ""],
+      };
+      for (var i = 1; i < 4; i++) {
+        preSelectqlc("presele_" + i, "td", "realball", [2, 34]);
+      }
+      break;
+
+    case "qlc_jozs":
+      args = {
+        initBody: "cpdata",
+        initArea: [],
+        initClass: [
+          "chartball01",
+          "chartball02",
+          "chartBall07",
+          "chartBall02",
+          "chartBall03",
+          "chartBall04",
+          "chartBall05",
+          "chartball20",
+        ],
+        initParams: [
+          {
+            color: "#3370b0",
+          },
+        ],
+        omitData: [
+          "no_lost",
+          "chartsTable",
+          "no_lost",
+          "nonum",
+          !1,
+          "no_lost1",
+        ],
+        omitLayer: ["slice_lost", "13", "46", "slice_lost", !1, "slice_lost1"],
+        brokenLine: ["broken_line", !0, "broken_line1"],
+        repNum: ["ch", "13", "46", "ch", false],
+        conNum: ["lh", "13", "46", "lh", false],
+        adjaNum: ["bh", "13", "46", "bh", false],
+        sortTop: ["imgsort", "broken_line", ""],
+        sortBottom: ["imgsort_b", "broken_line", ""],
+      };
+      for (var i = 1; i < 4; i++) {
+        preSelectqlc("presele_" + i, "td", "realball", [2, 34]);
+      }
+      break;
+
+    case "qlc_zhzs":
+      args = {
+        initBody: "cpdata",
+        initArea: [],
+        initClass: [
+          "chartball01",
+          "chartball02",
+          "chartBall07",
+          "chartBall02",
+          "chartBall03",
+          "chartBall04",
+          "chartBall05",
+          "chartball20",
+        ],
+        initParams: [
+          {
+            color: "#3370b0",
+          },
+        ],
+        omitData: [
+          "no_lost",
+          "chartsTable",
+          "no_lost",
+          "nonum",
+          !1,
+          "no_lost1",
+        ],
+        omitLayer: ["slice_lost", "13", "46", "slice_lost", !1, "slice_lost1"],
+        brokenLine: ["broken_line", !0, "broken_line1"],
+        repNum: ["ch", "13", "46", "ch", false],
+        conNum: ["lh", "13", "46", "lh", false],
+        adjaNum: ["bh", "13", "46", "bh", false],
+        sortTop: ["imgsort", "broken_line", ""],
+        sortBottom: ["imgsort_b", "broken_line", ""],
+      };
+      for (var i = 1; i < 4; i++) {
+        preSelectqlc("presele_" + i, "td", "realball", [2, 34]);
+      }
+      break;
+
+    case "qlc_012zs":
+      args = {
+        initBody: "cpdata",
+        initArea: [],
+        initClass: [
+          "chartball01",
+          "chartball02",
+          "chartBall07",
+          "chartBall02",
+          "chartBall03",
+          "chartBall04",
+          "chartBall05",
+          "chartball20",
+        ],
+        initParams: [
+          {
+            color: "#3370b0",
+          },
+        ],
+        omitData: [
+          "no_lost",
+          "chartsTable",
+          "no_lost",
+          "nonum",
+          !1,
+          "no_lost1",
+        ],
+        omitLayer: ["slice_lost", "13", "45", "slice_lost", !1, "slice_lost1"],
+        brokenLine: ["broken_line", !0, "broken_line1"],
+        repNum: ["ch", "13", "45", "ch", false],
+        conNum: ["lh", "13", "45", "lh", false],
+        adjaNum: ["bh", "13", "45", "bh", false],
+        sortTop: ["imgsort", "broken_line", ""],
+        sortBottom: ["imgsort_b", "broken_line", ""],
+      };
+      for (var i = 1; i < 4; i++) {
+        preSelectqlc("presele_" + i, "td", "realball", [2, 34]);
+      }
+      break;
+
+    case "qlc_kdzs":
+      args = {
+        initBody: "cpdata",
+        initArea: [
+          {
+            left: 15,
+            top: 0,
+            width: 26,
+            height: 0,
+          },
+        ],
+        initClass: ["chartball03", "chartball04"],
+        initParams: [
+          {
+            color: "#c84c59",
+          },
+          {
+            color: "#e0b26d",
+          },
+        ],
+        omitData: [
+          "no_lost",
+          "chartsTable",
+          "no_lost",
+          "nonum",
+          !1,
+          "no_lost1",
+        ],
+        omitLayer: ["slice_lost", "15", "41", "slice_lost", !1, "slice_lost1"],
+        brokenLine: ["broken_line", !0, "broken_line1"],
+        sortTop: ["imgsort", "broken_line", ""],
+        sortBottom: ["imgsort_b", "broken_line", ""],
+      };
+      for (var i = 1; i < 4; i++) {
+        preSelectqlc("presele_" + i, "td", "bg_r", [4, 30]),
+          preSelectqlc("presele_" + i, "td", "box_bg2", [31, 32]),
+          preSelectqlc("presele_" + i, "td", "bg_o", [34, 35]),
+          preSelectqlc("presele_" + i, "td", "box_bg2", [37, 38]);
+      }
+      break;
+
+    case "qlc_cfhzs":
+      args = {
+        initBody: "cpdata",
+        initArea: [],
+        initClass: [
+          "chartball01",
+          "chartball02",
+          "chartBall07",
+          "chartball08",
+          "chartBall02",
+          "chartBall03",
+          "chartBall04",
+          "chartBall05",
+          "chartball20",
+        ],
+        initParams: [
+          {
+            color: "#3370b0",
+          },
+        ],
+        omitData: [
+          "no_lost",
+          "chartsTable",
+          "no_lost",
+          "nonum",
+          !1,
+          "no_lost1",
+        ],
+        omitLayer: ["slice_lost", "4", "36", "slice_lost", !1, "slice_lost1"],
+        brokenLine: ["broken_line", !0, "broken_line1"],
+        repNum: ["ch", "4", "36", "ch", false],
+        conNum: ["lh", "4", "36", "lh", false],
+        adjaNum: ["bh", "4", "36", "bh", false],
+        sortTop: ["imgsort", "broken_line", ""],
+        sortBottom: ["imgsort_b", "broken_line", ""],
+      };
+      for (var i = 1; i < 4; i++) {
+        preSelectqlc("presele_" + i, "td", "realball", [2, 34]);
+      }
+      break;
+    case "qlc_lhzs":
+      args = {
+        initBody: "cpdata",
+        initArea: [],
+        initClass: [
+          "chartball01",
+          "chartball02",
+          "chartBall07",
+          "chartBall02",
+          "chartball08",
+          "chartBall03",
+          "chartBall04",
+          "chartBall05",
+          "chartball20",
+        ],
+        initParams: [
+          {
+            color: "#3370b0",
+          },
+        ],
+        omitData: [
+          "no_lost",
+          "chartsTable",
+          "no_lost",
+          "nonum",
+          !1,
+          "no_lost1",
+        ],
+        omitLayer: ["slice_lost", "4", "36", "slice_lost", !1, "slice_lost1"],
+        brokenLine: ["broken_line", !0, "broken_line1"],
+        repNum: ["ch", "4", "36", "ch", false],
+        conNum: ["lh", "4", "36", "lh", false],
+        adjaNum: ["bh", "4", "36", "bh", false],
+        sortTop: ["imgsort", "broken_line", ""],
+        sortBottom: ["imgsort_b", "broken_line", ""],
+      };
+      for (var i = 1; i < 4; i++) {
+        preSelectqlc("presele_" + i, "td", "realball", [2, 34]);
+      }
+      break;
+  }
+  control.chartInitializer(args);
+}

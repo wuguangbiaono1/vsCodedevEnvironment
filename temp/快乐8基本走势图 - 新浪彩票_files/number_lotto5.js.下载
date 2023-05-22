@@ -1,0 +1,333 @@
+;var _hmt = _hmt || [];
+(function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?95f52e4f23ebb07a1c59d4477d9ea97f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+
+(function () {
+    var lastTime = 0;
+    var vendors = ['ms', 'moz', 'webkit', 'o'];
+    for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+        window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame']
+            || window[vendors[x] + 'CancelRequestAnimationFrame'];
+    }
+
+    if (!window.requestAnimationFrame)
+        window.requestAnimationFrame = function (callback, element) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+            var id = window.setTimeout(function () { callback(currTime + timeToCall); },
+                timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+
+    if (!window.cancelAnimationFrame)
+        window.cancelAnimationFrame = function (id) {
+            clearTimeout(id);
+        };
+}());
+
+function checkScrollLeft() {
+    var box = document.querySelector('#cont');
+    var content = document.querySelector('.zhanji-wrap');
+    var boxWidth = box.offsetWidth;
+    var textWidth = content.offsetWidth;
+    // 判断文字长度是否大于盒子长度
+    if (boxWidth > textWidth) {
+        return false
+    }
+    box.innerHTML += box.innerHTML;
+    toScrollLeft();
+}
+
+function toScrollLeft() {
+    var box = document.querySelector('#cont');
+    var content = document.querySelector('.zhanji-wrap');
+    var textWidth = content.offsetWidth;
+
+    //  如果文字长度大于滚动条距离，则递归拖动
+    if (textWidth > box.scrollLeft) {
+        box.scrollLeft += 1;
+    } else {
+        box.scrollLeft = 0;
+    }
+    window.requestAnimationFrame(toScrollLeft)
+}
+
+//  查询滚动的专家战绩
+$.ajax({
+    type: 'get',
+    url: '//match.lottery.sina.com.cn/client/index/clientProxy',
+    data: {
+        format: 'json',
+        __caller__: 'web',
+        __version__: 1,
+        __verno__: 1,
+        cat1: 'LottoExpertDocsZhanJi',
+        page: 1,
+        pageSize: 20,
+        dpc: 1
+    },
+    // Work with the response
+    success: function (response) {
+        var res = response.result;
+        var status = res.status
+        if (status.code === 0) {
+            var data = res.data
+            var marqWrap = '<div class="zhanji-wrap">';
+            data = data.slice(0, 5)
+            data.forEach(function (item) {
+                var temp = item.replace(/\S等奖\d+万/, function ($0) {
+                    return '<span class="level-red">' + $0 + '</span>'
+                })
+                marqWrap += '<span class="zhanji-item">' + temp + '</span>'
+            })
+            marqWrap += '</div>'
+            document.getElementById("cont").innerHTML = marqWrap
+            checkScrollLeft()
+            $('#cont').on('click', function () {
+                _hmt.push(['_trackEvent', '数字彩滚动战绩点击量', '点击', '']);
+            })
+        }
+    }
+});
+
+getQueryString = function (name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return decodeURIComponent(r[2]); return null;
+}
+
+var lottoType = getQueryString('lottoType')
+
+var lottoMap = {
+    'ssq': 'ssq',
+    'qlc': 'ssq',
+    'kl8': 'kl8',
+    '3d': 'fc3d',
+    'dlt': 'dlt',
+    'qxc': 'qxc',
+    'p3': 'pl3',
+    'p5': 'pl3'
+}
+
+//   查询三篇专家推荐
+if (lottoMap[lottoType]) {
+    $('.more-recommend-btn').on('click', function () {
+        _hmt.push(['_trackEvent', '更多推荐按钮', '点击', '']);
+        window.open('https://lottery.sina.com.cn/number/lotto.shtml#/' + lottoMap[lottoType], '_blank')
+    })
+    $.ajax({
+        url: '//mix.lottery.sina.com.cn/gateway/index/entry/',
+        dataType: 'jsonp',
+        jsonp: 'callback',
+        jsonpCallback: 'lottoExpertNews',
+        cache: true,
+        data: {
+          format: "json",
+          __caller__: "web",
+          __version__: "1.0.0",
+          __verno__: 1,
+          cat1: 'lottoExpertNews',
+          expertId: '',
+          types: lottoMap[lottoType],
+          online: 1,
+          paginationType: 1,
+          page: 1,
+          pageSize: 3,
+          isRecommend: '',
+          dpc: 1
+        },
+        success: function (response) {
+            var res = response.result
+            if (res.status.code === 0) {
+                var list = res.data
+                if (list.length) {
+                    renderPlanItemNew(list)
+                } else {
+                    $('.expert-recommend-wrap').hide()
+                }
+            }
+        }
+    });
+} else {
+    $('.more-recommend-btn').on('click', function () {
+        _hmt.push(['_trackEvent', '更多推荐按钮', '点击', '']);
+        window.open('https://lottery.sina.com.cn/number', '_blank')
+    })
+    $.ajax({
+        type: 'get',
+        url: '//match.lottery.sina.com.cn/client/index/clientProxy',
+        data: {
+            format: 'json',
+            __caller__: 'web',
+            __version__: 1,
+            __verno__: 1,
+            cat1: 'lottoExpertDocsIndex',
+            lastId: '',
+            pageSize: 3,
+            lottoTypes: 'ssq,dlt',
+            dpc: 1
+        },
+        // Work with the response
+        success: function (response) {
+            var res = response.result
+            if (res.status.code === 0) {
+                var list = res.data
+                if (list.length) {
+                    renderPlanItem(list, 2)
+                } else {
+                    $('.expert-recommend-wrap').hide()
+                }
+            }
+        }
+    });
+}
+
+function renderPlanItemNew(list) {
+    var leftTitle = document.querySelector('.expert-recommend-wrap .left-title')
+    var intervalList = []
+    leftTitle.innerHTML = '专家推荐'
+    var temp = '';
+    list.forEach(function (item, index) {
+        temp = '<a class="news-item" target="_blank" href="https://lottery.sina.com.cn/number/article.shtml?news_id=' + item.newsId + '"><div class="left"><div class="number-logo logo-' + item.typeInfo.type + '"></div><div class="episode">' +
+            item.issueNo + '</div></div><div class="right"><div class="summary">' + item.title + '</div><div class="count-down">倒计时：' +
+            '</div><div class="price"></div></div></a>'
+
+        var timeSpan = document.createElement('span')
+        $('.scheme-wrap').eq(0).append(temp)
+        var price = item.price * 1 > 0 ? item.price + '炮弹' : '免费'
+        $('.scheme-wrap').find('.price').eq(index).text(price)
+
+        intervalList[index] = setInterval(() => {
+            timeDown(timeSpan, item.saleTimeFormat, index)
+            $('.scheme-wrap').find('.count-down').eq(index).append($(timeSpan))
+        }, 500)
+    })
+
+    $('.news-item').on('click', function() {
+        _hmt.push(['_trackEvent', '数字彩专家方案推荐', '点击', '']);
+    })
+    function format(time) {
+        if (time >= 10) {
+            return time
+        } else {
+            return '0' + time
+        }
+    }
+
+    function timeDown(el, time, index) {
+        var endTime = new Date(time.replace(/\-/g, '\/'))
+        var nowTime = new Date()
+        var leftTime = parseInt((endTime.getTime() - nowTime.getTime()) / 1000)
+        var d = parseInt(leftTime / (24 * 60 * 60))
+        var h = format(parseInt((leftTime / (60 * 60)) % 24))
+        var m = format(parseInt((leftTime / 60) % 60))
+        var s = format(parseInt(leftTime % 60))
+        if (leftTime <= 0) {
+            el.innerHTML = '已开奖'
+            clearInterval(intervalList[index])
+            return
+        }
+        el.innerHTML = '' + (d * 24 + h * 1) + ':' + m + ':' + s
+    }
+
+}
+
+function renderPlanItem(list, type) {
+    var leftTitle = document.querySelector('.expert-recommend-wrap .left-title')
+    var intervalList = []
+
+    if (type == 1) {
+        leftTitle.innerHTML = '专家推荐'
+
+    } else if (type == 2) {
+        leftTitle.innerHTML = '权威推荐'
+    }
+    var temp = '';
+    list.forEach(function (item, index) {
+        temp = '<a class="news-item" target="_blank" href="https://lottery.sina.com.cn/number/article.shtml?news_id=' + item.news_id + '"><div class="left"><div class="number-logo logo-' + item.type + '"></div><div class="episode">' +
+            item.issue_no + '</div></div><div class="right"><div class="summary">' + item.title + '</div><div class="count-down">倒计时：' +
+            '</div><div class="price"></div></div></a>'
+
+        var timeSpan = document.createElement('span')
+        $('.scheme-wrap').eq(0).append(temp)
+        var price = item.price * 1 > 0 ? item.price + '炮弹' : '免费'
+        $('.scheme-wrap').find('.price').eq(index).text(price)
+
+        intervalList[index] = setInterval(() => {
+            timeDown(timeSpan, item.sale_time, index)
+            $('.scheme-wrap').find('.count-down').eq(index).append($(timeSpan))
+        }, 500)
+    })
+
+    $('.news-item').on('click', function() {
+        _hmt.push(['_trackEvent', '数字彩专家方案推荐', '点击', '']);
+    })
+    function format(time) {
+        if (time >= 10) {
+            return time
+        } else {
+            return '0' + time
+        }
+    }
+
+    function timeDown(el, time, index) {
+        var endTime = new Date(time.replace(/\-/g, '\/'))
+        var nowTime = new Date()
+        var leftTime = parseInt((endTime.getTime() - nowTime.getTime()) / 1000)
+        var d = parseInt(leftTime / (24 * 60 * 60))
+        var h = format(parseInt((leftTime / (60 * 60)) % 24))
+        var m = format(parseInt((leftTime / 60) % 60))
+        var s = format(parseInt(leftTime % 60))
+        if (leftTime <= 0) {
+            el.innerHTML = '已开奖'
+            clearInterval(intervalList[index])
+            return
+        }
+        el.innerHTML = '' + (d * 24 + h * 1) + ':' + m + ':' + s
+    }
+
+}
+
+$('#nav-box').find('.nav-item').on('click', function (e) {
+    var name = e.currentTarget.innerHTML
+    _hmt.push(['_trackEvent', '顶部导航', '点击', name]);
+})
+
+$('.expert-box a').eq(0).on('click', function () {
+    _hmt.push(['_trackEvent', 'banner图点击', '点击', '']);
+})
+
+$('#mainmenus').find('li').on('click', function(e) {
+    var name = e.currentTarget.innerHTML
+    _hmt.push(['_trackEvent', lottoType + '二级导航导航', '点击', name]);
+})
+
+$('.msize').find('a').on('click', function(e) {
+    if(e.currentTarget.innerHTML.indexOf('最近50期') > -1){
+        _hmt.push(['_trackEvent', '最近50期', '点击', ''])
+    }
+    if(e.currentTarget.innerHTML.indexOf('最近80期') > -1){
+        _hmt.push(['_trackEvent', '最近80期', '点击', ''])
+    }
+    if(e.currentTarget.innerHTML.indexOf('最近120期') > -1){
+        _hmt.push(['_trackEvent', '最近120期', '点击', ''])
+    }
+})
+
+$('#zstsearch').on('click', function() {
+    _hmt.push(['_trackEvent', '自定义查看', '点击', ''])
+})
+
+if (lottoType === 'qxc') {
+    $('#zs').find('.menusli:last').hide()
+}
+
+if (location.href.indexOf("baidu_ala") > -1) {
+    $('.expert-recommend-wrap').siblings('a').hide()
+}

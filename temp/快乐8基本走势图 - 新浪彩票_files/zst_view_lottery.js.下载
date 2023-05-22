@@ -1,0 +1,181 @@
+//所有走势图上需要初始化的信息
+
+//页面载入事件..
+$(function () {
+
+    //走势图上的专家提示
+    $("#export").on("click", function () {
+        if ($(this).prop("checked")) {
+            $("#exportpanel1").show();
+        }
+         else {
+            $("#exportpanel1").hide();
+        }
+    });
+    //走势图上的欲出提示
+    $("#chuhao").on("click", function () {
+        if ($(this).prop("checked")) {
+            $("#exportpanel2").show();
+        }
+         else {
+            $("#exportpanel2").hide();
+        }
+    });
+
+    //大乐透历史同期
+    $("#lstq").change(function () {
+        var lstq = $(this).children("option:selected").val();
+        var array = getUrlArray();
+        var url = array[0] + "-lstq-" + lstq + "." + array[1];
+        window.location.href = url;
+    });
+
+    //年份选择
+    $("#year").change(function(){
+        var year = $(this).children("option:selected").val();
+        // var array = getUrlArray();
+        // var url = "";
+        // if(year=="0")
+        //     url = array[0]+"."+array[1];
+        // else
+        //     url = array[0]+"-y-"+year+"."+array[1];
+        // window.location.href = url;
+        
+        var lottoType = getUrlParam('lottoType');
+        var actionType = getUrlParam('actionType');
+
+        window.location.href = "//view.lottery.sina.com.cn/lotto/pc_zst/index?lottoType=" + lottoType + "&actionType=" + actionType + "&year=" + year+"&dpc=1";
+    });
+
+    //星期几选择
+    $("#week").change(function(){
+        var week = $(this).children('option:selected').val();
+        var array = getUrlArray();
+        var url =""
+        if(week=="0")
+            url = array[0]+"."+array[1];
+        else
+            url = array[0]+"-w-"+week+"."+array[1];
+        window.location.href=url;
+
+    });
+    //单双选择
+    $("#ds").change(function(){
+        var ds = $(this).children('option:selected').val();
+        var array = getUrlArray();
+        var url = "";
+        if(ds=="0")
+            url = array[0]+"."+array[1];
+        else
+            url = array[0]+"-ds-"+ds+"."+array[1];
+        window.location.href=url;
+
+    });
+
+    $(":input[name='lydata']").on("click",function(){
+        if($(this).val()=="1")
+        {
+            $("#history_gross").show();
+            $("#now_gross").hide();
+        }else{
+            $("#history_gross").hide();
+            $("#now_gross").show();
+
+        }
+    });
+
+    //结束期的回车事件绑定
+    $("#eqi").keypress(function(event){
+        if(event.which==13)
+        {
+            var len = $("#eqi").prop('maxlength');
+            if(len==7)
+                $("#zstsearch").click();
+            if(len==8)
+                $("#zst8search").click();
+            if (len == 9)
+                $("#zst9search").click();
+        }
+    });
+
+    //大乐透历史同期高级查询
+    $("#zstgjsearch").on("click", function () {
+        var y = $("#dyear").children('option:selected').val();
+        var m = $("#month").children('option:selected').val();
+        var q = $("#qhws").children('option:selected').val();
+        var flag = true;
+        if (y == "0" && m == "0" && q == "10") {
+            alert("请选择条件！");
+            flag = false;
+        }
+        if (flag) {
+            var array = getUrlArray();
+            var url = array[0] + "-" + y + "-" + m + "-" + q + "." + array[1];
+            window.location.href = url;
+        }
+    });
+
+    //期数为7位数的区间选择.
+    $("#zstsearch").on("click", function () {
+        var k = $("#sqi").val();
+        var j = $("#eqi").val();
+        var reg = /^((200[2-9])|(20[0-9][0-9]))\d{3}$/;//2002年到2017年开奖号
+        if (!reg.test(k) || !reg.test(j)) {
+            alert('请正确输入想要查询的开奖号格式(如：2018001,2018088)，范围(最低可输入2002年的期数)。');
+            return false;
+        }
+        if (Number(k) > Number(j)) {
+            alert('最低期数要小于最高期数');
+            return false;
+        }
+        // var array = getUrlArray();
+        // var url = array[0] + "-" + k + "-" + j + "." + array[1];
+        // window.location.href = url;
+
+        var lottoType = getUrlParam('lottoType');
+        var actionType = getUrlParam('actionType');
+
+        window.location.href = "//view.lottery.sina.com.cn/lotto/pc_zst/index?lottoType=" + lottoType + "&actionType=" + actionType + "&sqi=" + k + "&eqi=" + j + "&dpc=1";
+    });
+
+    //期数为8位数的区间选择.
+    $("#zst8search").on("click",function(){
+        var k = $("#sqi").val();
+        var j = $("#eqi").val();
+        var reg = /^\d{8}$/;
+        if (!reg.test(k) || !reg.test(j)) {
+            alert('请正确输入想要查询的开奖号格式(如：17091372,17091417)。');
+            return false;
+        }
+        if (Number(k) > Number(j)) {
+            alert('最低期数要小于最高期数');
+            return false;
+        }
+            var array = getUrlArray();
+            var url = array[0]+"-"+k+"-"+j+"."+array[1];
+            window.location.href = url;
+
+    });
+    //期数为9位数的区间选择.
+    $("#zst9search").on("click", function () {
+        var k = $("#sqi").val();
+        var j = $("#eqi").val();
+        var reg = /^\d{9}$/;
+        if (!reg.test(k) || !reg.test(j)) {
+            alert('请正确输入想要查询的开奖号格式(如：170913016,170914015)');
+            return false;
+        }
+        if (Number(k) > Number(j)) {
+            alert('最低期数要小于最高期数');
+            return false;
+        }
+        var array = getUrlArray();
+        var url = array[0] + "-" + k + "-" + j + "." + array[1];
+        window.location.href = url;
+
+    });
+    $('#cpdata').find('tr').click(function () {
+        $(this).toggleClass('active');
+    })
+
+});

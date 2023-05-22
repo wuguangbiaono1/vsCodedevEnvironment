@@ -1,0 +1,2748 @@
+@charset "utf-8";html {
+    color: #333;
+    _text-overflow: ellipsis
+}
+
+html {
+    -webkit-text-size-adjust: none
+}
+
+body,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,select,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle
+}
+
+body,button,input,select,textarea {
+    font-size: 14px;
+    font-family: 'Microsoft YaHei','å®‹ä½“',tahoma
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-size: 1em
+}
+
+a {
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+a:active {
+    outline: 0 none
+}
+
+small,cite,code,em,th,i,b {
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 500
+}
+
+input,select,textarea,button {
+    font-size: 1em
+}
+
+input,button,select,textarea {
+    outline: 0
+}
+
+button {
+    border: 0
+}
+
+textarea {
+    resize: none
+}
+
+button,input[type=button],input[type=submit] {
+    cursor: pointer
+}
+
+input[type=search] {
+    -webkit-appearance: textfield
+}
+
+fieldset,img,iframe {
+    border: 0 none
+}
+
+img {
+    display: inline-block;
+    vertical-align: bottom
+}
+
+iframe {
+    display: block
+}
+
+ul,ol {
+    list-style: none
+}
+
+li {
+    vertical-align: top
+}
+
+q:before,q:after {
+    content: ''
+}
+
+a {
+    color: #2A2A2A
+}
+
+a:visited,a[tabindex='-1']:focus {
+    outline: 0 none
+}
+
+a:hover {
+    color: #4580CF;
+    outline: 0 none
+}
+
+.none {
+    display: none
+}
+
+.strong {
+    font-weight: 700
+}
+
+.fyh {
+    font-family: 'Microsoft YaHei'
+}
+
+.hide {
+    display: none
+}
+
+.ft8 {
+    font-size: 6px;
+    font-family: tahoma;
+    -webkit-transform: scale(0.66);
+    width: 16px;
+    display: block;
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: center;
+    color: #d9d9d9
+}
+
+.ft9 {
+    font-size: 8px;
+    font-family: tahoma;
+    -webkit-transform: scale(0.66);
+    width: 15px;
+    display: block;
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: center
+}
+
+.fix {
+    clear: both;
+    overflow: hidden;
+    height: 1px
+}
+
+.box {
+    width: 1200px;
+    clear: both;
+    float: none;
+    margin: 0 auto
+}
+
+.favtip {
+    width: 310px;
+    background: #fff5da;
+    text-align: right;
+    padding: 3px 0;
+    position: absolute;
+    top: 0;
+    left: 890px;
+    display: none
+}
+
+.favtip a.close {
+    margin: 0 10px 0 0
+}
+
+.favtip a img {
+    vertical-align: middle
+}
+
+.favtip u {
+    display: none
+}
+
+.favtip strong,.favtip a.strong {
+    color: #c62132;
+    font-weight: 700
+}
+
+#top {
+    margin: 0 auto;
+    width: 1200px;
+    height: 64px
+}
+
+#top .logo {
+    float: left;
+    width: 330px;
+    margin-top: 8px
+}
+
+#top .logo a {
+    width: 162px;
+    height: 55px;
+    display: block;
+    background: url(//edge.caitong.sina.com.cn/static/images/logo.gif) no-repeat center center
+}
+
+#top .logo a span {
+    display: none
+}
+
+#top .ann {
+    float: left;
+    margin-top: 28px;
+    height: 26px;
+    line-height: 26px;
+    width: 300px
+}
+
+#top .ann a {
+    margin-top: 5px
+}
+
+#top .usermenu {
+    float: right;
+    width: 440px;
+    margin-top: 8px
+}
+
+#top .usermenu ul {
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+    font-size: 12px
+}
+
+#top .usermenu ul li {
+    float: right;
+    vertical-align: bottom;
+    margin-left: 20px;
+    font-family: 'Microsoft YaHei'
+}
+
+#top .usermenu ul .weibo {
+    background: url(//edge.caitong.sina.com.cn/static/images/top_icon.png) no-repeat 0 -68px;
+    height: 24px;
+    margin-left: 25px
+}
+
+#top .usermenu ul .qq {
+    background: url(//edge.caitong.sina.com.cn/static/images/top_icon.png) no-repeat 0 -44px;
+    height: 24px;
+    margin-left: 25px
+}
+
+#top .usermenu ul .reg {
+    background: url(//edge.caitong.sina.com.cn/static/images/top_icon.png) no-repeat 0 0;
+    height: 22px
+}
+
+#top .usermenu ul .login {
+    background: url(//edge.caitong.sina.com.cn/static/images/top_icon.png) no-repeat 0 -22px;
+    height: 22px
+}
+
+#top .usermenu ul .qq a,#top .usermenu ul .weibo a {
+    display: block;
+    width: 76px;
+    height: 24px
+}
+
+#top .usermenu ul .qq span,#top .usermenu ul .weibo span {
+    display: block;
+    width: 76px;
+    height: 24px
+}
+
+#top .usermenu ul .reg a,#top .usermenu ul .login a {
+    display: block;
+    width: 48px;
+    height: 22px
+}
+
+#top .usermenu ul .reg span,#top .usermenu ul .login span {
+    display: block;
+    width: 48px;
+    height: 22px
+}
+
+#top .usermenu strong {
+    color: #f30;
+    font-weight: 700
+}
+
+#top .usermenu li a {
+    color: #1c53a3
+}
+
+#bar {
+    width: 100%;
+    background: url(//edge.caitong.sina.com.cn/static/images/top_bg.gif) repeat-x left center;
+    height: 33px;
+    margin: 8px auto;
+    margin-bottom: 0;
+    min-width: 1200px
+}
+
+#bar .mainjump {
+    width: 198px;
+    height: 33px;
+    background: url(//edge.caitong.sina.com.cn/static/images/switch_bg.gif) no-repeat left center;
+    float: left;
+    text-align: center;
+    cursor: pointer
+}
+
+#bar .mainjump span {
+    color: #365ea0;
+    font-size: 16px;
+    line-height: 32px
+}
+
+#bar .mainav {
+    float: right;
+    width: 960px;
+    margin-left: 16px
+}
+
+#bar .mainav ul {
+    float: left;
+    width: 960px
+}
+
+#bar .mainav ul li {
+    float: left;
+    line-height: 30px;
+    font-size: 14px;
+    color: #fff;
+    margin: 0 20px
+}
+
+#bar .mainav ul li a {
+    color: #fff;
+    font-size: 16px
+}
+
+#bar .line {
+    background: url(//edge.caitong.sina.com.cn/static/images/top_max_bg.gif) no-repeat right center;
+    overflow: hidden
+}
+
+#cznav {
+    width: 100%;
+    background: url(//edge.caitong.sina.com.cn/static/images/cz_bg.gif) repeat-x left center;
+    height: 62px;
+    min-width: 1200px
+}
+
+#cznav ul {
+    margin-left: 15px;
+    _margin-left: 7px;
+    padding-left: 41px;
+    margin-top: 9px
+}
+
+#cznav .fucai {
+    float: left;
+    width: 405px;
+    background: url(//edge.caitong.sina.com.cn/static/images/fucai.gif) no-repeat left top
+}
+
+#cznav .ticai {
+    float: left;
+    width: 405px;
+    background: url(//edge.caitong.sina.com.cn/static/images/ticai.gif) no-repeat left top
+}
+
+#cznav .gaopin {
+    float: left;
+    width: 220px;
+    background: url(//edge.caitong.sina.com.cn/static/images/gaopin.gif) no-repeat left top
+}
+
+#cznav li {
+    line-height: 23px;
+    float: left;
+    width: 100%
+}
+
+#cznav li a {
+    display: block;
+    float: left;
+    text-align: left;
+    width: 71px;
+    font-size: 12px
+}
+
+#cznav li a.strong {
+    font-weight: 700
+}
+
+#cznav li a.sw {
+    width: 60px
+}
+
+.location {
+    margin: 10px auto;
+    margin-bottom: 0;
+    margin-top: 20px;
+    float: left;
+    width: 1200px;
+    clear: both
+}
+
+.location .wz {
+    float: left;
+    width: 350px;
+    color: gray;
+    line-height: 30px
+}
+
+.location .wz a {
+    color: #1c53a3
+}
+
+.location .wz a:last-child {
+    color: #2a2a2a
+}
+
+.location .wz a.strong {
+    font-weight: 700
+}
+
+.location .bbswz {
+    float: left;
+    width: 900px;
+    color: #888;
+    line-height: 30px
+}
+
+.location .bbswz a {
+    color: #1c53a3
+}
+
+.location .bbswz a.strong {
+    font-weight: 700;
+    color: #333
+}
+
+.location .kjhwz {
+    float: left;
+    width: 700px;
+    color: gray;
+    line-height: 30px
+}
+
+.location .kjhwz a {
+    color: #1c53a3
+}
+
+.location .kjhwz a:last-child {
+    color: #2a2a2a
+}
+
+.location .kjhwz a.strong {
+    font-weight: 700
+}
+
+.location .kjhinfo {
+    float: left;
+    margin-left: 90px;
+    width: 720px;
+    line-height: 30px;
+    font-family: tahoma
+}
+
+.location .kjhinfo strong.red {
+    color: #f30
+}
+
+.location .kjhinfo label {
+    float: left
+}
+
+.location .kjhinfo label.text {
+    margin-left: 22px
+}
+
+.location .kjhinfo label.boll {
+    line-height: 30px;
+    margin-top: 5px
+}
+
+.showbox {
+    width: 540px;
+    clear: both;
+    float: none;
+    border: 5px solid #ccc;
+    margin-bottom: 0;
+    padding: 0
+}
+
+.showbox h2 {
+    margin-top: 20px;
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+    color: #444;
+    background: url(//edge.caitong.sina.com.cn/static/images/show_box_bg.gif) left center no-repeat;
+    padding-left: 26px;
+    margin-left: 8px
+}
+
+.showbox .content {
+    margin: 15px 23px 0 35px;
+    margin-bottom: 0
+}
+
+.showbox .content table {
+    width: 490px;
+    margin: 0 auto
+}
+
+.showbox .content table td {
+    padding: 2px;
+    line-height: 28px
+}
+
+.showbox .content .close {
+    background: url(//edge.caitong.sina.com.cn/static/images/show_box_close.gif) no-repeat left center;
+    width: 80px;
+    height: 30px;
+    margin-left: 10px
+}
+
+.showbox .content .export {
+    background: url(//edge.caitong.sina.com.cn/static/images/tools_button.gif) no-repeat 0 -30px;
+    width: 180px;
+    height: 30px
+}
+
+.showbox .content .save2c {
+    background: url(//edge.caitong.sina.com.cn/static/images/tools_button.gif) no-repeat 0 -90px;
+    width: 180px;
+    height: 30px;
+    margin-left: 30px
+}
+
+.clearfix:after {
+    content: "";
+    height: 0;
+    clear: both;
+    width: 100%;
+    display: table
+}
+
+#footer {
+    margin: 26px auto;
+    line-height: 28px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    padding-top: 16px;
+    width: 100%;
+    font-size: 12px
+}
+
+#footer .mainfooter {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 10px
+}
+
+#footer .mainfooter .codeContainer {
+    float: left;
+    padding: 0 30px 0 0
+}
+
+#footer .mainfooter .codeContainer .code {
+    float: left;
+    margin-right: 30px
+}
+
+#footer .mainfooter .codeContainer .code img {
+    display: block;
+    width: 100px;
+    height: 100px
+}
+
+#footer .mainfooter .codeContainer .code p {
+    line-height: 20px;
+    text-align: center
+}
+
+#footer .mainfooter .info {
+    float: left;
+    width: 650px;
+    padding-left: 50px;
+    border-left: 1px solid #e5e5e5
+}
+
+#footer .mainfooter .info p {
+    line-height: 60px;
+    text-align: left
+}
+
+.quickjump {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 200px
+}
+
+.quickjump {
+    _position: absolute;
+    _top: expression(documentElement.scrollTop + documentElement.clientHeight * 4/5 + "px")
+}
+
+.quickjump a {
+    display: block;
+    font-family: 'Microsoft YaHei'
+}
+
+.quickjump a {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    background: #b2b2b2;
+    font-size: 12px;
+    padding: 3px 5px;
+    _padding: 6px 5px 2px;
+    margin-top: 5px
+}
+
+.quickjump a:hover {
+    background: #666;
+    color: #fff;
+    text-decoration: none
+}
+
+.error {
+    border: 2px solid #eee;
+    padding: 20px;
+    margin: 20px auto;
+    width: 700px
+}
+
+.error .title {
+    border-bottom: 1px dotted #eee;
+    padding-bottom: 5px
+}
+
+.error .title h2 {
+    font-size: 16px
+}
+
+.error ul {
+    margin: 40px 40px 40px 100px;
+    height: 100px;
+    font-family: Arial
+}
+
+.error ul.ok {
+    background: url(//edge.caitong.sina.com.cn/static/forum/eok.gif) no-repeat left top
+}
+
+.error ul.err {
+    background: url(//edge.caitong.sina.com.cn/static/forum/e.gif) no-repeat left top
+}
+
+.error ul li {
+    padding-left: 50px;
+    padding-top: 0;
+    font-size: 14px;
+    line-height: 32px
+}
+
+.error ul li a {
+    color: #105cb6;
+    font-family: Arial
+}
+
+input.ypost {
+    background: #777;
+    color: #fff;
+    height: 30px;
+    border: 0 solid #000;
+    cursor: pointer;
+    margin-top: 3px;
+    font-family: 'Microsoft YaHei'
+}
+
+.placeholder {
+    color: #aaa
+}
+
+noscript h3 {
+    font-family: Microsoft YaHei;
+    font-size: 12px;
+    font-weight: 400;
+    border: 1px solid #ddd;
+    width: 380px;
+    padding: 2px;
+    margin: 3px auto;
+    text-align: center
+}
+
+.shake {
+    color: #f30
+}
+
+.mini {
+    width: 1200px;
+    margin: 8px auto;
+    margin-bottom: 0;
+    float: left
+}
+
+#gg_class16 {
+    width: 1198px;
+    float: left;
+    background: #fbfbfb;
+    padding: 6px 0;
+    border: 1px solid #eee
+}
+
+#gg_class16 li {
+    float: left;
+    width: 133px;
+    text-align: center;
+    padding: 4px 0
+}
+
+#gg_class16 li a {
+    color: #333;
+    font-size: 12px
+}
+
+#gg_class29 {
+    width: 1198px;
+    float: left;
+    background: #fbfbfb;
+    padding: 6px 0;
+    border: 1px solid #eee
+}
+
+#gg_class29 li {
+    float: left;
+    width: 133px;
+    text-align: center;
+    padding: 4px 0
+}
+
+#gg_class29 li a {
+    color: #333;
+    font-size: 12px
+}
+
+.hotRecommand {
+    border: 1px solid #dbdbdb;
+    height: 100px
+}
+
+.hotRecommand .title {
+    width: 20px;
+    padding: 11px 10px;
+    height: 78px;
+    text-align: center;
+    background: #eee;
+    text-align: center;
+    float: left;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: 'Microsoft YaHei'
+}
+
+.hotRecommand .hotList {
+    float: left;
+    width: 190px;
+    border-right: 1px solid #dbdbdb
+}
+
+.hotRecommand .hotList li {
+    padding: 0 30px;
+    height: 26px;
+    overflow: hidden
+}
+
+.hotRecommand .hotList.noBorder {
+    border-right: 0
+}
+
+.hotRecommand .hotList li a {
+    color: #333;
+    line-height: 26px
+}
+
+.clearfix:before {
+    content: '';
+    width: 100%;
+    height: 0;
+    display: table;
+    clear: both
+}
+
+.clearfix:after {
+    content: '';
+    width: 100%;
+    height: 0;
+    display: table;
+    clear: both
+}
+
+.navright {
+    float: right;
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    color: #d0d0d0
+}
+
+.navright a {
+    line-height: 30px;
+    color: #1c53a3;
+    font-size: 13px
+}
+
+.search {
+    background: url(//edge.caitong.sina.com.cn/static/images/zst_search.gif) no-repeat left center;
+    width: 38px;
+    height: 18px
+}
+
+* {
+    -webkit-font-smoothing: antialiased
+}
+
+#menus {
+    min-height: 30px;
+    padding: 0 0 30px;
+    overflow: hidden
+}
+
+#menus .control {
+    float: left;
+    width: 55px
+}
+
+#menus .control div {
+    display: block;
+    text-align: center;
+    width: 68px;
+    border: 1px solid #dbdbdb;
+    border-width: 0 1px 1px 0;
+    width: 51px;
+    height: 33px;
+    line-height: 33px;
+    cursor: pointer
+}
+
+#menus .control div.tab {
+    font-weight: 700;
+    border: 1px solid #dbdbdb;
+    border-width: 0 0 1px;
+    color: #2a2a2a
+}
+
+.menulist {
+    width: 1200px
+}
+
+.menulist ul {
+    overflow: hidden
+}
+
+.menulist li {
+    margin: 0 20px;
+    float: left;
+    line-height: 30px;
+    height: 30px;
+    overflow: hidden;
+    color: #2a2a2a;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer
+}
+
+.menulist li.hot {
+    background: url(//edge.caitong.sina.com.cn/static/images/hot.gif) no-repeat right center;
+    padding-right: 18px
+}
+
+.menulist li.new {
+    background: url(//edge.caitong.sina.com.cn/static/images/new.gif) no-repeat right center;
+    padding-right: 18px
+}
+
+.menulist li.tab {
+    font-weight: 700
+}
+
+.chart {
+    margin: 0;
+    position: relative;
+    zoom:1;width: 1198px
+}
+
+#main {
+    border: 1px solid #dbdbdb;
+    border-width: 0 1px 1px;
+    width: 1198px;
+    position: relative;
+    overflow: hidden
+}
+
+#main .topaid label,#main .bottomaid label {
+    padding-left: 3px
+}
+
+#main .mbar {
+    background: url(//edge.caitong.sina.com.cn/static/images/mbar_bg.gif) repeat-x left center;
+    height: 40px;
+    line-height: 40px
+}
+
+#main .mbar h3 {
+    float: left;
+    margin-left: 10px;
+    margin-right: 20px;
+    color: #b92734;
+    font-family: tahoma;
+    font-size: 18px
+}
+
+#main .mbar h4 {
+    float: left;
+    width: 300px;
+    margin-left: 10px;
+    color: #2a2a2a;
+    font-size: 18px;
+    font-weight: 400
+}
+
+#main .mbar .submenus {
+    float: left;
+    color: #000;
+    margin-top: 0;
+    +margin-top: 0;
+    _margin-top: 0
+}
+
+#main .mbar .submenus a {
+    color: #1c53a3;
+    margin: 0 5px
+}
+
+#main .mbar .submenus a:hover {
+    color: #b92734
+}
+
+#main .mbar .submenus .tab {
+    color: #b92734
+}
+
+#main .mbar .msize {
+    float: right;
+    width: 570px;
+    text-align: right;
+    font-family: tahoma;
+    vertical-align: text-bottom;
+    margin-top: 0;
+    +margin-top: 0;
+    _margin-top: 6px;
+    font-size: 12px
+}
+
+#main .mbar .msize a {
+    color: #1c53a3
+}
+
+#main .mbar .msize a.tab {
+    color: #b92734;
+    font-weight: 700
+}
+
+#main .mbar .msize span {
+    margin-right: 13px
+}
+
+#main .mbar .msize .text {
+    font-family: tahoma;
+    border: 1px solid #707070;
+    width: 68px;
+    text-align: center;
+    line-height: 18px;
+    height: 18px
+}
+
+#main .mbar .msize .select {
+    font-family: tahoma;
+    border: 1px solid #707070;
+    width: 68px
+}
+
+#main .topaid {
+    background: #f6f6f6;
+    text-align: center;
+    _padding-top: 8px;
+    height: 34px;
+    _height: 26px;
+    line-height: 34px;
+    margin: 0 auto;
+    width: 1198px
+}
+
+#main .bottomaid {
+    background: #f6f6f6;
+    text-align: right;
+    width: 1198px;
+    _padding-top: 8px;
+    height: 34px;
+    _height: 26px;
+    line-height: 34px
+}
+
+#main .topaid span,#main .bottomaid span {
+    margin-right: 10px
+}
+
+#main .topaid label,.bottomaid label {
+    cursor: pointer
+}
+
+#main .title {
+    background: #f0e5c7;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    font-family: 'Microsoft YaHei';
+    font-size: 16px;
+    float: left;
+    width: 1198px
+}
+
+#main .lastkjh {
+    font-size: 14px;
+    padding: 15px 15px 15px 30px
+}
+
+#main .todaykjh {
+    font-size: 14px;
+    padding: 15px 15px 15px 30px
+}
+
+#main .todaykjh td {
+    padding: 5px 0
+}
+
+#main .todaykjh td .hui {
+    color: #666;
+    font-size: 12px;
+    font-family: tahoma
+}
+
+#main .todaykjh td a.link {
+    font-size: 12px;
+    color: #1a53a4
+}
+
+#main .lastkjh span {
+    margin-right: 20px
+}
+
+#main .wchfx {
+    width: 1198px;
+    float: left
+}
+
+#main .wchfx .switchmenu {
+    width: 1198px;
+    float: left
+}
+
+#main .wchfx .switch {
+    float: left;
+    height: 36px
+}
+
+#main .wchfx .switch li {
+    float: left;
+    padding: 0 30px;
+    line-height: 36px;
+    border: 1px solid #f0e5c7;
+    border-width: 0 1px 1px 0;
+    background: #f8f4e8;
+    font-size: 14px;
+    cursor: pointer
+}
+
+#main .wchfx .switch li.tab {
+    background: #fff;
+    border-width: 0;
+    border-right: 1px solid #f0e5c7
+}
+
+#main .wchfx .end {
+    background: #fff;
+    border: 1px solid #f0e5c7;
+    border-width: 0 0 1px;
+    width: 662px;
+    float: left;
+    line-height: 36px;
+    padding-left: 30px
+}
+
+#main .wchfx .item {
+    width: 80px;
+    float: left;
+    float: left;
+    margin: 10px 0 10px 30px
+}
+
+#main .wchfx .item li {
+    width: 70px;
+    height: 22px;
+    background: url(//edge.caitong.sina.com.cn/static/images/fb_bg1.gif) no-repeat left center;
+    text-align: center;
+    color: #113f94;
+    line-height: 22px;
+    margin-bottom: 20px;
+    cursor: pointer
+}
+
+#main .wchfx .item li.tab {
+    width: 70px;
+    height: 22px;
+    background: url(//edge.caitong.sina.com.cn/static/images/fb_bg.gif) no-repeat left center;
+    text-align: center;
+    color: #3390dd
+}
+
+#main .wchfx table {
+    float: left;
+    width: 975px;
+    margin: 10px 10px 10px 14px;
+    border: 1px solid #ddd;
+    border-width: 1px 0 0 1px
+}
+
+#main .wchfx td,#main .wchfx th {
+    border: 1px solid #ddd;
+    border-width: 0 1px 1px 0;
+    padding: 4px;
+    text-align: center
+}
+
+#main .wchfx th {
+    font-weight: 700;
+    font-family: arial;
+    width: 89px
+}
+
+#main .wchfx td {
+    font-family: arial;
+    line-height: 23px;
+    vertical-align: top
+}
+
+#main .prompt {
+    width: 975px;
+    float: left;
+    margin-left: 124px;
+    margin-bottom: 5px
+}
+
+#main .prompt strong {
+    color: #d12114
+}
+
+#main .prompt span {
+    color: #1a54a6
+}
+
+.historytoday {
+    float: left;
+    width: 1198px
+}
+
+.historytoday table {
+    border: 1px solid #ddd;
+    border-width: 1px 0 0 1px;
+    margin: 10px 10px 10px 14px;
+    width: 1170px;
+    float: left
+}
+
+.historytoday td,.historytoday th {
+    border: 1px solid #ddd;
+    border-width: 0 1px 1px 0;
+    padding: 4px;
+    text-align: center;
+    font-family: arial
+}
+
+.historytoday th {
+    color: #666;
+    background: #f9f9f9
+}
+
+.historytoday tr:hover {
+    background: #eee
+}
+
+.historytoday tr.count {
+    background: #fffdf9
+}
+
+.historytoday tr.count td {
+    color: #3370b0;
+    font-family: tahoma
+}
+
+.historytoday tr.count td span {
+    color: #888
+}
+
+.historytoday .bg1 {
+    background: #e0b26d;
+    color: #fff;
+    font-family: arial;
+    width: 27px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px
+}
+
+.historytoday .bg2 {
+    background: #7ca8a9;
+    color: #fff;
+    font-family: arial;
+    width: 27px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px
+}
+
+.historytoday .bg3 {
+    background: #c84c59;
+    color: #fff;
+    font-family: arial;
+    width: 20px;
+    height: 19px;
+    margin: 0 auto;
+    line-height: 17px
+}
+
+.historytoday .bg4 {
+    background: #ffb54c;
+    color: #fff;
+    font-family: arial;
+    width: 18px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px
+}
+
+.historytoday .bg5 {
+    background: #7ca8a9;
+    color: #fff;
+    font-family: arial;
+    width: 25px;
+    height: 14px;
+    margin: 0 auto;
+    line-height: 14px
+}
+
+.historytoday .bg6 {
+    background: #ffb54c;
+    color: #fff;
+    font-family: arial;
+    width: 25px;
+    height: 14px;
+    margin: 0 auto;
+    line-height: 14px
+}
+
+.historytoday .switchtoday {
+    width: 1198px;
+    float: left
+}
+
+.historytoday .today {
+    float: left;
+    height: 36px
+}
+
+.historytoday .today li {
+    float: left;
+    padding: 0 30px;
+    line-height: 36px;
+    border: 1px solid #f0e5c7;
+    border-width: 0 1px 1px 0;
+    background: #f8f4e8;
+    font-size: 14px;
+    cursor: pointer
+}
+
+.historytoday .today li.tab {
+    background: #fff;
+    border-width: 0;
+    border-right: 1px solid #f0e5c7
+}
+
+.historytoday .end {
+    background: #fff;
+    border: 1px solid #f0e5c7;
+    border-width: 0 0 1px;
+    width: 447px;
+    float: left;
+    padding-left: 30px;
+    height: 36px
+}
+
+#main .red {
+    color: #d12114
+}
+
+#main .blue {
+    color: #1b52a2
+}
+.zst_leaf{float:left;width:371px;}
+.zst_leaf .ox{width:363px;clear:both;float:left;border:4px solid #ddd;background:#fff;}
+.zst_leaf .ox input{margin:0px;padding:0px;}
+.zst_leaf .title{width:363px; float:left; background:url(//edge.caitong.sina.com.cn/static/images/zst_leaf_title_bg.gif) repeat-x left center;height:30px;line-height:30px;}
+.zst_leaf .title span{color:#999;}
+.zst_leaf .title .num{color:#d12114;font-family:Arial;}
+.zst_leaf .title h2{font-weight:bold;float:left;width:155px;padding-left:6px;_padding-left:3px;font-family:"Microsoft YaHei";_font-family:'宋体';color:#444;font-size:14px;}
+.zst_leaf .title .date{float:left;width:180px;_width:185px;vertical-align:text-bottom;margin-top:0px;+margin-top:0px;_margin-top:4px;}
+.zst_leaf .title .leafclose{float:right;margin-right:6px;_margin-right:2px; background:url(//edge.caitong.sina.com.cn/static/images/zst_leaf_close.gif) left center no-repeat;width:16px;height:16px;margin-top:6px;}
+.zst_leaf .title .leafclose span{display:none;}
+.zst_leaf .title .leafclose a{display:block;width:16px;height:16px;}
+.zst_leaf .line{background:url(//edge.caitong.sina.com.cn/static/images/zst_leaf_line.gif) no-repeat right center;}
+.zst_leaf .line2{background:url(//edge.caitong.sina.com.cn/static/images/zst_leaf_line2.gif) no-repeat right center;}
+.zst_leaf .hrow{float:left;padding:5px;margin-top:1px; background:#f5f5f5}
+.zst_leaf .row{width:362px; float:left;margin-top:1px;border-bottom:1px solid #e1e1e1;;}
+.zst_leaf .left{width:90px; float:left; background:#f9f9f9;height:80px; text-align:right;}
+.zst_leaf .left p{margin-top:10px;line-height:30px;}
+.zst_leaf .right{float:left;width:270px; background:url(//edge.caitong.sina.com.cn/static/images/zst_leaf_right_bg.gif) left top no-repeat; overflow:hidden;}
+.zst_leaf .balllist{float:left;width:256px;margin-top:12px;padding-left:15px;}
+.zst_leaf .balllist li{float:left;width:42px;height:49px; background:url(//edge.caitong.sina.com.cn/static/images/zst_leaf_ball01.gif) no-repeat center center;color:#cb2923;font-weight:bold;font-size:22px; text-align:center;line-height:44px;font-family:Arial;margin-right:7px; cursor:pointer;}
+.zst_leaf .balllist .tab{background:url(//edge.caitong.sina.com.cn/static/images/zst_leaf_ball02.gif) no-repeat center center;color:#fff;}
+.zst_leaf .kballlist{float:left;width:256px;margin-top:12px;padding-left:15px;}
+.zst_leaf .kballlist li{float:left;width:42px;height:49px; background:url(//edge.caitong.sina.com.cn/static/images/zst_leaf_ball03.gif) no-repeat center center;color:#508b16;font-weight:bold;font-size:22px; text-align:center;line-height:44px;font-family:Arial;margin-right:7px; cursor:pointer;}
+.zst_leaf .kballlist .tab{background:url(//edge.caitong.sina.com.cn/static/images/zst_leaf_ball04.gif) no-repeat center center;color:#fff;}
+.zst_leaf .balltimes{float:left;width:256px;padding-left:15px;}
+.zst_leaf .balltimes li{float:left;width:42px;text-align:center;margin-right:7px;}
+/*分段热度*/
+.zst_leaf .hot{float:left;width:280px;margin-top:5px;padding-left:5px;}
+.zst_leaf .hot li{float:left;width:65px; text-align:center;line-height:28px;font-size:10px;}
+.zst_leaf .numyl{float:left;width:256px;margin:3px 0px 3px 0px;padding-left:15px;}
+.zst_leaf .numyl li{float:left;margin-right:20px;line-height:22px;padding-right:20px;}
+.zst_leaf .numyl li div{background:url(//edge.caitong.sina.com.cn/static/images/zst_leaf_ball02.gif) no-repeat center center;width:42px;height:49px;margin-top:15px;line-height:44px; text-align:center;font-family:Arial;color:#fff;font-size:22px;font-weight:bold;}
+.zst_leaf .numyl li span{color:#cb2923;font-family:tahoma}
+.zst_leaf .bottom{background:url(//edge.caitong.sina.com.cn/static/images/zst_leaf_bg.gif) left bottom no-repeat;float:left;width:365px;height:8px; position:relative;top:10;left:0;}
+.zst_leaf .green{color:#508b16;}
+.zst_leaf .red{color:#d12114;}
+.zst_leaf .fb{margin-top:1px;padding-left:12px;}
+.zst_leaf .fb table{border:1px dotted #efefef;border-width:1px 0 0 1px;font-size: 10px;}
+.zst_leaf .fb th,.zst_leaf .fb td{border:1px dotted #efefef;border-width:0 1px 1px 0px;}
+.zst_leaf .fb td{text-align:center;font-family:Arial;}
+.zst_leaf .fb tr:hover{background:#f9f9f9;}
+.zst_leaf .fb th strong{font-family:Arial;font-weight:bold;}
+.zst_leaf .fb th{font-weight:bold;color:#888;}
+
+.green {
+    color: #0c9a0a
+}
+
+.zst_table {
+    font-size: 12px;
+    text-align: center;
+    background: #f7f7f7;
+    line-height: 20px;
+    background: #fff;
+    border-spacing: 1px;
+    border-collapse: collapse;
+    position: relative;
+    width: 1198px
+}
+
+.zst_table td {
+    background: #f7f7f7;
+    font-family: 'å®‹ä½“';
+    text-align: center;
+    border: 1px solid #fff;
+    height: 24px
+}
+
+.zst_table tr.active td {
+    background-color: #eaf0f7
+}
+
+.zst_table th {
+    text-align: center;
+    border: 1px solid #fff
+}
+
+.zst_table .wdh {
+    width: 18px
+}
+
+.zst_table .wdhn {
+    width: 17px
+}
+
+.zst_table .wdhm {
+    width: 15px
+}
+
+.zst_table .wdhz {
+    width: 20px
+}
+
+.zst_table .wdhzx {
+    width: 22px
+}
+
+.zst_table .wx {
+    width: 24px
+}
+
+.zst_table .wxhz {
+    width: 23px
+}
+
+.zst_table .wdx {
+    width: 28px
+}
+
+.zst_table .wdzx {
+    width: 30px
+}
+
+.zst_table .wz {
+    width: 21px
+}
+
+.zst_table .wzx {
+    width: 26px
+}
+
+.zst_table .wd {
+    width: 18px;
+    min-width: 18px
+}
+
+.zst_table .yl01 {
+    color: #d0dce9;
+    width: 17px;
+    height: 20px
+}
+
+.zst_table .yl02 {
+    color: #e9c7c7
+}
+
+.zst_table .yl03 {
+    color: #bbb
+}
+
+.zst_table .yl04 {
+    color: #f99
+}
+
+.zst_table .yl05 {
+    color: #d6bdab
+}
+
+.zst_table .yl06 {
+    color: #b7c2c3
+}
+
+.zst_table .chartball01,.zst_table .chartball02,.zst_table .chartball06,.zst_table .chartball07,.zst_table .chartball08,.zst_table .realball,.zst_table .blueball,.zst_table .greenball,.zst_table .chartball20 {
+    background-position: center center;
+    color: #fff;
+    background-repeat: no-repeat;
+    font-family: Arial;
+    font-weight: 700;
+    letter-spacing: -1px
+}
+
+.zst_table .chartball12,.zst_table .chartball13 {
+    background-position: center center;
+    color: #fff;
+    background-repeat: no-repeat
+}
+
+.zst_table .chartball09,.zst_table .chartball10,.zst_table .chartball11 {
+    background-position: center center;
+    color: #fff;
+    background-repeat: no-repeat
+}
+
+.zst_table .qxcball01,.zst_table .qxcball02 {
+    background-position: center center;
+    color: #fff;
+    background-repeat: no-repeat;
+    font-weight: 700
+}
+
+.zst_table .qxcball01 {
+    background-image: url(//edge.caitong.sina.com.cn/static/qxc/ball_red.gif)
+}
+
+.zst_table .qxcball02 {
+    background-image: url(//edge.caitong.sina.com.cn/static/qxc/ball_blue.gif)
+}
+
+.zst_table .chartball01 {
+    background-image: url(//edge.caitong.sina.com.cn/static/sd/01.gif)
+}
+
+.zst_table .chartball02 {
+    background-image: url(//edge.caitong.sina.com.cn/static/sd/ball_blue.gif);
+    position: relative
+}
+
+.zst_table .chartball02.hassup {
+    z-index: 200
+}
+
+.zst_table .chartball02 sup {
+    background-image: url(../sd/sup-ball.png);
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../sd/sup-ball.png');
+    _background-image: none;
+    z-index: 100;
+    position: absolute;
+    right: -6px;
+    top: -3px;
+    line-height: 12px;
+    color: #c84c59;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 12px
+}
+
+.zst_table .chartball06 {
+    background-image: url(//edge.caitong.sina.com.cn/static/sd/ball_blue1.gif)
+}
+
+.zst_table .chartball07 {
+    background-image: url(//edge.caitong.sina.com.cn/static/sd/ball_yellow.gif)
+}
+
+.zst_table .chartball08 {
+    background-image: url(//edge.caitong.sina.com.cn/static/sd/ball_hui.gif);
+    font-weight: 400
+}
+
+.zst_table .chartball03 {
+    background: #c84c59;
+    color: #fff
+}
+
+.zst_table .chartball04 {
+    background: #e0b26d;
+    color: #fff
+}
+
+.zst_table .chartball05 {
+    background: #7ca8a9;
+    color: #fff
+}
+
+.zst_table .chartball12 {
+    background-image: url(//edge.caitong.sina.com.cn/static/ssq/chartBall12.gif)
+}
+
+.zst_table .chartball13 {
+    background-image: url(//edge.caitong.sina.com.cn/static/ssq/chartBall13.gif)
+}
+
+.zst_table .greenball {
+    background-image: url(//edge.caitong.sina.com.cn/static/ssq/chartBall11.gif)
+}
+
+.zst_table .chartball20 {
+    background-image: url(//edge.caitong.sina.com.cn/static/sd/02.gif);
+    color: #ae0303;
+    letter-spacing: -1px
+}
+
+.zst_table .chartball09 {
+    background-image: url(//edge.caitong.sina.com.cn/static/ssq/chartBall09.gif);
+    color: #fff
+}
+
+.zst_table .chartball10 {
+    background-image: url(//edge.caitong.sina.com.cn/static/ssq/chartBall10.gif);
+    color: #fff
+}
+
+.zst_table .chartball11 {
+    background-image: url(//edge.caitong.sina.com.cn/static/ssq/chartBall11.gif);
+    color: #fff
+}
+
+.zst_table .chartBallzx1 {
+    background: #f7f7f7 url(//edge.caitong.sina.com.cn/static/sd/zx_1.gif) center center no-repeat;
+    color: #333;
+    font-family: Arial
+}
+
+.zst_table .chartBallzx2 {
+    background: #f7f7f7 url(//edge.caitong.sina.com.cn/static/sd/zx_2.gif) center center no-repeat;
+    color: red;
+    font-family: Arial
+}
+
+.zst_table .chartballblank {
+    background: #f7f7f7;
+    color: #fff;
+    font-family: Arial
+}
+
+.s_ball {
+    position: absolute;
+    background: url(//edge.caitong.sina.com.cn/static/sd/s_ball.gif) no-repeat center center;
+    color: #fff;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    margin: -7px 0 0 9px;
+    _margin: -7px 0 0 6px;
+    z-index: 998;
+    font-size: 10px
+}
+
+.zst_table th strong {
+    margin-left: -5px
+}
+
+.zst_table .thbg td,.zst_table .thbg th,.zst_table th {
+    background: #dbdbdb;
+    height: 1px;
+    _height: 2px
+}
+
+.zst_table .thbg td,.zst_table .thbg th {
+    background: #f0e5c6
+}
+
+.zst_table th.sort_top,.zst_table td.sort_top {
+    cursor: pointer;
+    background: #f0e5c6 url(//edge.caitong.sina.com.cn/static/images/sort_asc.gif) no-repeat center center
+}
+
+.zst_table th.sort_bottom,.zst_table td.sort_bottom {
+    cursor: pointer;
+    background: #f0e5c6 url(//edge.caitong.sina.com.cn/static/images/sort_desc.gif) no-repeat center center
+}
+
+.zst_table tr td.br01,.zst_table tr th.br01 {
+    width: 1px;
+    background: #dbdbdb;
+    font-size: 0;
+    border: 1px solid #dbdbdb;
+    border-width: 1px 0
+}
+
+.zst_table tr td.br02,.zst_table tr th.br02 {
+    width: 2px;
+    background: #dbdbdb;
+    font-size: 0;
+    border: 1px solid #dbdbdb;
+    border-width: 1px 0
+}
+
+.zst_table tr td.br03,.zst_table tr th.br03 {
+    width: 2px;
+    background: #dbdbdb;
+    font-size: 0;
+    border: 1px solid #dbdbdb;
+    border-width: 1px 0
+}
+
+.zst_table .red {
+    color: #c84c59;
+    font-family: tahoma;
+    width: 24px
+}
+
+.zst_table .yellow {
+    color: #f29200;
+    width: 24px
+}
+
+.zst_table .r {
+    color: #c84c59
+}
+
+.zst_table .blue1 {
+    color: #8dbcbd;
+    width: 24px
+}
+
+.zst_table .blue2 {
+    color: #3370b0;
+    width: 24px
+}
+
+.zst_table .fen {
+    font-family: tahoma
+}
+
+.zst_table .fenred {
+    font-family: tahoma;
+    color: #c84c59
+}
+
+.zst_table .bg1 {
+    background: #e0b26d;
+    color: #fff
+}
+
+.zst_table .bg2 {
+    background: #7ca8a9;
+    color: #fff
+}
+
+.zst_table .bg3 {
+    background: #e0b26d;
+    color: #fff;
+    font-family: tahoma;
+    width: 27px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px
+}
+
+.zst_table .bg4 {
+    background: #444;
+    color: #fff;
+    font-family: tahoma;
+    width: 27px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px
+}
+
+.zst_table .bg5 {
+    background: #8dbcbd;
+    color: #fff;
+    font-family: tahoma;
+    width: 27px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px
+}
+
+.zst_table .bg6 {
+    background: #8dbcbd;
+    color: #fff;
+    font-family: tahoma;
+    width: 33px;
+    height: 14px;
+    margin: 0 auto;
+    line-height: 14px
+}
+
+.zst_table .bg7 {
+    background: #e0b26d;
+    color: #fff;
+    font-family: tahoma;
+    width: 33px;
+    height: 14px;
+    margin: 0 auto;
+    line-height: 14px
+}
+
+.zst_table .bg8 {
+    background: #8dbcbd;
+    color: #fff;
+    font-family: arial;
+    width: 35px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px;
+    font-weight: 700
+}
+
+.zst_table .bg8_d {
+    background: #e0b26d;
+    color: #fff;
+    font-family: arial;
+    width: 35px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px;
+    font-weight: 700
+}
+
+.zst_table .bg9 {
+    background: #7ca8a9;
+    color: #fff;
+    font-family: arial;
+    width: 26px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px;
+    font-weight: 700
+}
+
+.zst_table .bg10_l {
+    background: #7ca8a9;
+    color: #fff;
+    font-family: tahoma;
+    width: 30px;
+    height: 14px;
+    margin: 0 auto auto 1px;
+    line-height: 14px
+}
+
+.zst_table .bg10_r {
+    background: #7ca8a9;
+    color: #fff;
+    font-family: tahoma;
+    width: 30px;
+    height: 14px;
+    margin: 0 1px auto auto;
+    line-height: 14px
+}
+
+.zst_table .bg10 {
+    background: #c84c59;
+    color: #fff;
+    font-family: arial;
+    width: 44px;
+    height: 18px;
+    margin: 0 auto;
+    line-height: 18px
+}
+
+.zst_table .bg11 {
+    background: #7ca8a9;
+    color: #fff;
+    font-family: tahoma;
+    width: 46px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px
+}
+
+.zst_table .bg12 {
+    background: #e0b26d;
+    color: #fff;
+    font-family: tahoma;
+    width: 46px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px
+}
+
+.zst_table .bg13 {
+    background: #7ca8a9;
+    color: #fff;
+    font-family: tahoma;
+    width: 56px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px
+}
+
+.zst_table .bg14 {
+    background: #c84c59;
+    color: #fff;
+    font-family: arial;
+    width: 30px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px;
+    font-weight: 700
+}
+
+.zst_table .bg15 {
+    background: #7ca8a9;
+    color: #fff;
+    font-family: arial;
+    width: 18px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px;
+    font-weight: 700
+}
+
+.zst_table .bg16 {
+    background: #e0b26d;
+    color: #fff;
+    font-family: arial;
+    width: 18px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px;
+    font-weight: 700
+}
+
+.zst_table .bg17 {
+    background: #8dbcbd;
+    color: #fff;
+    font-family: arial;
+    width: 26px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px;
+    font-weight: 400
+}
+
+.zst_table .bg18 {
+    background: #e0b26d;
+    color: #fff;
+    font-family: arial;
+    width: 26px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px;
+    font-weight: 400
+}
+
+.zst_table .bg18_w {
+    background: #e0b26d;
+    color: #fff;
+    font-family: arial;
+    width: 32px;
+    height: 16px;
+    margin: 0 auto;
+    line-height: 16px;
+    font-weight: 400
+}
+
+.zst_table .bg19 {
+    background: #8dbcbd;
+    color: #fff;
+    font-family: arial;
+    width: 30px;
+    height: 18px;
+    margin: 0 auto;
+    line-height: 18px;
+    font-weight: 700
+}
+
+.zst_table .bg20 {
+    background: #8dbcbd;
+    color: #fff;
+    font-family: arial;
+    width: 44px;
+    height: 18px;
+    margin: 0 auto;
+    line-height: 18px;
+    font-weight: 400
+}
+
+.zst_table .box_bg2 {
+    background: #8dbcbd;
+    color: #fff;
+    width: 16px;
+    height: 15px;
+    margin: 0 auto;
+    line-height: 15px;
+    font-family: arial
+}
+
+.zst_table .box_bg1 {
+    background: #e0b26d;
+    color: #fff;
+    width: 16px;
+    height: 15px;
+    margin: 0 auto;
+    line-height: 15px;
+    font-family: arial
+}
+
+.zst_table .box_bg4 {
+    background: #7ca8a9;
+    color: #fff;
+    width: 16px;
+    height: 15px;
+    margin: 0 auto;
+    line-height: 16px;
+    font-family: arial
+}
+
+.zst_table .box_bg3 {
+    background: #e0b26d;
+    color: #fff;
+    width: 16px;
+    height: 15px;
+    margin: 0 auto;
+    line-height: 16px;
+    font-family: arial
+}
+
+.zst_table .dlt_bg1 {
+    background: #7ca8a9;
+    color: #fff;
+    margin: 0 auto;
+    line-height: 15px;
+    font-family: arial
+}
+
+.zst_table .td_bg02 td {
+    background: #e8f1fa
+}
+
+.zst_table .qxcyl01 {
+    background: #f7f7f7;
+    color: #d0dce9
+}
+
+.zst_table .qxcyl02 {
+    color: #e9c7c7
+}
+
+.zst_table .bg_p {
+    color: #e1adad;
+    background-color: #faeeee
+}
+
+.zst_table .bg_bl {
+    color: #bccee2;
+    background-color: #eaf0f7
+}
+
+.zst_table tr.active .bg_p {
+    color: #e1adad;
+    background-color: #faeeee
+}
+
+.zst_table tr.active .bg_bl {
+    color: #bccee2;
+    background-color: #eaf0f7
+}
+
+.nonum #cpdata .yl01,.nonum #cpdata .yl02,.nonum #cpdata .yl03,.nonum #cpdata .yl04,.nonum #cpdata .yl06,.nonum #cpdata .yl05 {
+    color: #f7f7f7;
+    background-color: #f7f7f7
+}
+
+.nonum #cpdata tr.active .yl01 {
+    color: #eaf0f7;
+    background-color: #eaf0f7
+}
+
+.nonum #cpdata tr.active .yl02 {
+    color: #eaf0f7;
+    background-color: #eaf0f7
+}
+
+.nonum #cpdata tr.active .yl03 {
+    color: #eaf0f7;
+    background-color: #eaf0f7
+}
+
+.nonum #cpdata .bg_p {
+    color: #faeeee
+}
+
+.nonum #cpdata .bg_bl {
+    color: #eaf0f7
+}
+
+.nonum #cpdata .qxcyl01,.nonum #cpdata .qxcyl02 {
+    color: #f7f7f7;
+    background-color: #f7f7f7
+}
+
+.zst_table #cpdata td.ball_omit_5,.zst_table #cpdata td.ball_omit_11,.zst_table #cpdata td.ball_omit_m {
+    background: #99c
+}
+
+.nonum #cpdata td.ball_omit_5,.nonum #cpdata td.ball_omit_11,.nonum #cpdata td.ball_omit_m {
+    color: #99c
+}
+
+.nonum #cpdata tr.active td.ball_omit_m {
+    color: #99c;
+    background: #99c
+}
+
+.data_table td.ball_omit_5 {
+    color: #000
+}
+
+.data_table td.ball_omit_11 {
+    color: #06f
+}
+
+.data_table td.ball_omit_m {
+    color: red
+}
+
+.zst_table .presele td {
+    background: url(//edge.caitong.sina.com.cn/static/sd/light_ball.png) center center no-repeat #eaeaea;
+    color: #999;
+    cursor: pointer;
+    font-family: Arial
+}
+
+.zst_table .presele td:hover {
+    background: url(//edge.caitong.sina.com.cn/static/sd/pink_ball.png) center center no-repeat #eaeaea;
+    color: #d3979f
+}
+
+.zst_table td.presele_tit,.zst_table td.presele_tit:hover {
+    background-image: none;
+    color: #2b2b2b;
+    cursor: default
+}
+
+.presqu td {
+    background-image: none;
+    background: #eaeaea;
+    font-family: tahoma;
+    color: #999;
+    cursor: pointer
+}
+
+.presqu td:hover {
+    background-image: none;
+    cursor: pointer
+}
+
+.presquline td {
+    background-image: none;
+    background: #eaeaea;
+    font-family: tahoma;
+    color: #999;
+    cursor: pointer;
+    line-height: 12px
+}
+
+.presquline td:hover {
+    background-image: none;
+    cursor: pointer
+}
+
+.zst_table td.realball,.zst_table td.realball:hover {
+    background-image: url(//edge.caitong.sina.com.cn/static/sd/real_ball.gif);
+    color: #fff
+}
+
+.zst_table td.blueball,.zst_table td.blueball:hover {
+    background-image: url(//edge.caitong.sina.com.cn/static/sd/ball_blue.gif);
+    color: #fff
+}
+
+.zst_table td.chartball12,.zst_table td.chartball12:hover {
+    background-image: url(//edge.caitong.sina.com.cn/static/ssq/chartBall12.gif)
+}
+
+.zst_table td.chartball13,.zst_table td.chartball13:hover {
+    background-image: url(//edge.caitong.sina.com.cn/static/ssq/chartBall13.gif)
+}
+
+.zst_table .bg_r,.zst_table .bg_r:hover {
+    color: #fff;
+    background-color: #c84c59
+}
+
+.zst_table .bg_b,.zst_table .bg_b:hover {
+    color: #fff;
+    background-color: #7ca8a9
+}
+
+.zst_table .bg_o,.zst_table .bg_o:hover {
+    color: #fff;
+    background-color: #e0b26d;
+    background-image: none
+}
+
+.zst_table td.bg_red,.zst_table td.bg_red:hover {
+    color: #fff;
+    background-color: #c84c59;
+    line-height: 12px;
+    padding: 3px 0;
+    font-family: Arial;
+    background-image: none
+}
+
+.zst_table .lineh12 {
+    line-height: 12px
+}
+
+.zst_table .bg_1 {
+    background-color: #e0b26d;
+    color: #fff;
+    background-image: none
+}
+
+.zst_table .bg_2 {
+    background-color: #ad6847;
+    color: #fff;
+    background-image: none
+}
+
+.zst_table .bg_3 {
+    background-color: #0fb536;
+    color: #fff;
+    background-image: none
+}
+
+.zst_table .bg_4 {
+    background-color: #069ab0;
+    color: #fff;
+    background-image: none
+}
+
+.zst_table .bg_5 {
+    background-color: #0879ba;
+    color: #fff;
+    background-image: none
+}
+
+.zst_table .bg_6 {
+    background-color: #8019e0;
+    color: #fff;
+    background-image: none
+}
+
+.zst_table .bg_7 {
+    background-color: #12a6d7;
+    color: #fff;
+    background-image: none
+}
+
+.zstsearch {
+    background: url(//edge.caitong.sina.com.cn/static/images/zst_search.gif) no-repeat left center;
+    width: 38px;
+    height: 18px
+}
+
+.zst_table .export td,.zst_table .export1 td {
+    background: #fff;
+    text-align: left;
+    height: 28px
+}
+
+.zst_table .export1 td {
+    background: #fbfbfb
+}
+
+.export .center,.export1 .center {
+    text-align: center
+}
+
+.export ul,.export1 ul {
+    float: left;
+    clear: both
+}
+
+.export li,.export1 li {
+    float: left;
+    width: 140px;
+    padding-left: 5px;
+    overflow: hidden
+}
+
+.export li.right,.export1 li.right {
+    float: right;
+    width: 70px;
+    margin-left: 10px
+}
+
+.export label,.export1 label {
+    margin-left: 3px
+}
+
+.export span strong,.export1 span strong {
+    font-family: arial
+}
+
+.export label,.export1 strong {
+    font-family: Arial
+}
+
+.gross {
+    color: #333
+}
+
+.tdbck td {
+    height: 1px;
+    background: #dbdbdb;
+    font-size: 0
+}
+
+#wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1
+}
+
+#main .wz1 {
+    color: #c84c59;
+    margin: 0 2px
+}
+
+#main .wz2 {
+    color: #3370b0;
+    margin: 0 2px
+}
+
+#main .wz3 {
+    color: #f29200;
+    margin: 0 2px
+}
+
+#main .wz4 {
+    color: #008b8d;
+    margin: 0 2px
+}
+
+#main .wz5 {
+    color: #c84c59;
+    font-weight: 700
+}
+
+#main .wz6 {
+    color: #008b8d;
+    font-weight: 700
+}
+
+#main .wz7 {
+    color: #222
+}
+
+#main .wz8 {
+    color: #851a26
+}
+
+#main .zhong {
+    color: #f55;
+    font-family: 'Microsoft YaHei';
+    font-size: 14px
+}
+
+#main .cuo {
+    color: #999;
+    font-family: 'Microsoft YaHei';
+    font-size: 14px
+}
+
+#helptip {
+    margin: 6px auto;
+    border: 1px solid #dbdbdb;
+    float: left;
+    width: 1198px;
+    margin-bottom: 0;
+    overflow: hidden
+}
+
+#helptip .title {
+    float: left;
+    margin: 6px;
+    background: #f7f7f7;
+    height: 34px;
+    line-height: 34px;
+    width: 1186px;
+    +width: 1185px;
+    _width: 1180px
+}
+
+#helptip .title h3 {
+    background: url(//edge.caitong.sina.com.cn/static/images/help_icon.gif) left center no-repeat;
+    padding-left: 26px;
+    margin-left: 10px;
+    float: left;
+    width: 200px
+}
+
+#helptip .title .showclose {
+    float: right;
+    background: url(//edge.caitong.sina.com.cn/static/images/show_close.gif) no-repeat left center;
+    padding-left: 20px;
+    margin-right: 15px;
+    width: 28px;
+    cursor: pointer;
+    text-align: right
+}
+
+#helptip ul {
+    width: 1100px;
+    float: left;
+    margin: 5px 20px 10px
+}
+
+#helptip ul li {
+    line-height: 34px
+}
+
+#customenus {
+    margin: 6px auto;
+    border: 1px solid #dbdbdb;
+    float: left;
+    width: 1198px;
+    margin-bottom: 0;
+    overflow: hidden
+}
+
+#customenus .title {
+    float: left;
+    width: 1186px
+}
+
+#customenus .title {
+    background: url(//edge.caitong.sina.com.cn/static/images/custom_title_bg.gif) repeat-x left center
+}
+
+#customenus .title li {
+    float: left;
+    height: 34px;
+    line-height: 34px;
+    background: url(//edge.caitong.sina.com.cn/static/images/custom_bg.gif) repeat-x left center;
+    padding: 0 20px;
+    border-right: 1px solid #dbdbdb;
+    text-align: center;
+    cursor: pointer
+}
+
+#customenus .title li.tab {
+    color: #c32231;
+    background: url(//edge.caitong.sina.com.cn/static/images/custom_tab_bg.gif) repeat-x left center
+}
+
+#customenus .title li span {
+    color: #f30
+}
+
+#customenus .title .addfav {
+    float: left;
+    width: 60px;
+    line-height: 34px;
+    cursor: pointer;
+    margin-left: 20px;
+    background: url(//edge.caitong.sina.com.cn/static/images/addfav.gif) no-repeat left center;
+    padding-left: 20px
+}
+
+#customenus .title .share {
+    float: left;
+    width: 80px;
+    line-height: 34px;
+    cursor: pointer;
+    margin-left: 12px;
+    background: url(//edge.caitong.sina.com.cn/static/images/share.gif) no-repeat left center;
+    padding-left: 18px
+}
+
+#customenus .menulist {
+    float: left;
+    width: 1170px;
+    margin: 5px 20px 10px 10px;
+    _margin: 5px 20px 10px 30px
+}
+
+#customenus .menuo ul {
+    float: left;
+    width: 1170px
+}
+
+#customenus .menulist li {
+    line-height: 26px
+}
+
+#loading {
+    z-index: 10010;
+    position: absolute;
+    display: none
+}
+
+v\:line,v\:rect,v\:oval,v\:group,v\:stroke,v\:fill,v\:polyline {
+    behavior: url(#default#VML)
+}
+
+button.ypost {
+    background: #777;
+    color: #fff;
+    height: 26px;
+    padding: 0 3px;
+    border: 0 solid #000;
+    cursor: pointer;
+    margin-top: 3px;
+    font-family: 'Microsoft YaHei'
+}
+
+#caiso {
+    margin: 6px auto;
+    height: 33px;
+    line-height: 33px;
+    border: 1px solid #dbdbdb;
+    float: left;
+    width: 1198px;
+    margin-bottom: 0;
+    overflow: hidden
+}
+
+#caiso span {
+    font-size: 12px;
+    font-weight: 700;
+    padding-left: 10px
+}
+
+#caiso a {
+    padding: 0 4px
+}
+
+tr.hasbb td {
+    border-bottom: 1px solid #dbdbdb!important
+}
+
+.layout {
+    display: block;
+    width: 1200px;
+    margin: 0 auto;
+    position: relative
+}
+
+.header {
+    overflow: hidden
+}
+
+.sina-logo-box {
+    height: 52px
+}
+
+.sina-logo {
+    float: left;
+    background: url(//www.sinaimg.cn/ty/2011hqj/0710/images/sinaLogo.png) no-repeat 0 11px;
+    background-size: 140px 35px;
+    width: 140px;
+    height: 52px;
+    cursor: pointer
+}
+
+#date-now {
+    float: left;
+    color: #999;
+    padding-left: 12px;
+    line-height: 40px;
+    font-size: 12px;
+    padding-top: 12px
+}
+
+.nav-box {
+    margin-top: 5px;
+    background-color: #0275c5;
+    height: 80px
+}
+
+.nav-fc {
+    float: left;
+    width: 600px;
+    position: relative;
+    padding: 10px 0
+}
+
+.nav-tc {
+    float: right;
+    width: 600px;
+    position: relative;
+    padding: 10px 0
+}
+
+.logo-fc {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/logo_fc.png) no-repeat;
+    background-size: 50px 50px;
+    width: 50px;
+    height: 50px
+}
+
+.logo-tc {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/logo_tc.png) no-repeat;
+    background-size: 50px 50px;
+    width: 50px;
+    height: 50px
+}
+
+.nav-list {
+    padding-left: 70px;
+    height: 30px;
+    overflow: hidden
+}
+
+.nav-item {
+    display: inline-block;
+    color: #fff;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 20px;
+    cursor: pointer
+}
+
+.nav-list .selected {
+    font-weight: 700
+}
+
+.lottery-type {
+    position: relative;
+    padding: 15px 0 15px 60px;
+    overflow: hidden;
+    height: 50px;
+    line-height: 50px
+}
+
+.lottery-type-logo {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden
+}
+
+.lottery-type-text {
+    font-size: 20px;
+    font-weight: 700
+}
+
+.lottery-type-ssq {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_ssq.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-3d {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_3d.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-df61 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_df61.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-hb30x5 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_30x5.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-xj35x7 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_35x7.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-xj25x7 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_25x7.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-qlc {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_qlc.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-hc1 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_hc1.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-hd15x5 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_15x5.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-hn22x5 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_22x5.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-ny36x7 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_36x7.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-hljp62 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_hljp62.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-dlt {
+    background: url(//n.sinaimg.cn/sports/4d7a202e/20220530/dltlogo100px.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.news-item .left .dlt-logo{
+    background: url(//n.sinaimg.cn/sports/4d7a202e/20220530/dltlogo100px.png) no-repeat center / contain;
+}
+
+.lottery-type-p5 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_p5.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-js7ws {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_js7ws.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-fj36x7 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_36x7.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-fj22x5 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_22x5.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-zj61 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_zj61.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-p3 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_p3.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-qxc {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_qxc.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-zj20x5 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_fj22x5.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-fj31x7 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_31x7.png) no-repeat;
+    background-size: 50px 50px
+}
+
+.lottery-type-hlj61 {
+    background: url(//n.sinaimg.cn/sports/sina_lotto/trend/pczst/images/icon_fj22x5.png) no-repeat;
+    background-size: 50px 50px
+}
